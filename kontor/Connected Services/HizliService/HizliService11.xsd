@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/HizliWebApp.Models.HbtMusteri" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/HizliWebApp.Models.HbtMusteri" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://econnect.hizliteknoloji.com.tr/Services/HizliService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:complexType name="musteri">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Aciklama" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AktifPasif" type="xs:boolean" />
+      <xs:element minOccurs="0" name="BayiMi" type="xs:boolean" />
+      <xs:element minOccurs="0" name="BayiOdemeYuzde" type="xs:decimal" />
+      <xs:element minOccurs="0" name="FirmaId" type="xs:int" />
+      <xs:element minOccurs="0" name="KullaniciMailGonder" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ad" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="bayiVknTckn" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="etiketListesi" nillable="true" type="tns:ArrayOfetiketler" />
+      <xs:element minOccurs="0" name="kaydedenAd" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="kaydedenSoyad" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="kaydedenTel" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="kepAdresi" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="krediListesi" nillable="true" type="tns:ArrayOfkredi" />
+      <xs:element minOccurs="0" name="kullaniciAdi" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="kurumTuru" type="tns:kurumTuru" />
+      <xs:element minOccurs="0" name="kurumsalEposta" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="mersisNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="musteriAdi" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="musteriTemsilcisi" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="referansId" type="xs:int" />
+      <xs:element minOccurs="0" name="sehir" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="sorumluAd" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="sorumluCepTel" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="sorumluEPosta" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="sorumluSoyad" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="sorumluTckn" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="soyad" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="sozlesmeListesi" nillable="true" type="tns:ArrayOfsozlesme" />
+      <xs:element minOccurs="0" name="subeListesi" nillable="true" type="tns:ArrayOfsube" />
+      <xs:element minOccurs="0" name="ticaretOdasi" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ticaretSicilNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="unvan" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="vergiDairesi" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="vergiDairesiIl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="vknTckn" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="musteri" nillable="true" type="tns:musteri" />
+  <xs:complexType name="ArrayOfetiketler">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="etiketler" nillable="true" type="tns:etiketler" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfetiketler" nillable="true" type="tns:ArrayOfetiketler" />
+  <xs:complexType name="etiketler">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DurumAciklamasi" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IslemDurumu" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IslemTuru" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="etiket" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="etiketTuru" type="tns:etiketTuru" />
+      <xs:element minOccurs="0" name="hizmetTuru" type="tns:hizmetTuru" />
+      <xs:element minOccurs="0" name="kurumTuru" type="tns:kurumTuru" />
+      <xs:element minOccurs="0" name="referansId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="etiketler" nillable="true" type="tns:etiketler" />
+  <xs:simpleType name="etiketTuru">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="GB" />
+      <xs:enumeration value="PK" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="etiketTuru" nillable="true" type="tns:etiketTuru" />
+  <xs:simpleType name="hizmetTuru">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="E_ARSIV" />
+      <xs:enumeration value="E_FATURA" />
+      <xs:enumeration value="E_DEFTER" />
+      <xs:enumeration value="SAKLAMA" />
+      <xs:enumeration value="E_DEFTER_YUKLEME" />
+      <xs:enumeration value="E_IRSALIYE" />
+      <xs:enumeration value="SMM" />
+      <xs:enumeration value="MM" />
+      <xs:enumeration value="MALI_RAPOR_ESKI_OKC" />
+      <xs:enumeration value="MALI_RAPOR_YENI_OKC" />
+      <xs:enumeration value="DEFTER_KONTROL" />
+      <xs:enumeration value="ON_MUHASEBE" />
+      <xs:enumeration value="E_ARSIV_KASA" />
+      <xs:enumeration value="E_GIDER_PUSULASI" />
+      <xs:enumeration value="E_DOVIZ" />
+      <xs:enumeration value="E_ARSIV_PORTAL" />
+      <xs:enumeration value="E_ADISYON" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="hizmetTuru" nillable="true" type="tns:hizmetTuru" />
+  <xs:simpleType name="kurumTuru">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="KAMU" />
+      <xs:enumeration value="OZEL" />
+      <xs:enumeration value="VUK507KAMU" />
+      <xs:enumeration value="VUK507OZEL" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="kurumTuru" nillable="true" type="tns:kurumTuru" />
+  <xs:complexType name="ArrayOfkredi">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="kredi" nillable="true" type="tns:kredi" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfkredi" nillable="true" type="tns:ArrayOfkredi" />
+  <xs:complexType name="kredi">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="birimTuru" type="tns:birimTuru" />
+      <xs:element minOccurs="0" name="islemTuru" type="tns:islemTuru" />
+      <xs:element minOccurs="0" name="krediTuru" nillable="true" type="tns:krediTuru" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="kredi" nillable="true" type="tns:kredi" />
+  <xs:simpleType name="birimTuru">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="FaturaAdedi" />
+      <xs:enumeration value="AlanBoyutu" />
+      <xs:enumeration value="ArsivKasa" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="birimTuru" nillable="true" type="tns:birimTuru" />
+  <xs:simpleType name="islemTuru">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Satinalma" />
+      <xs:enumeration value="Hediye" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="islemTuru" nillable="true" type="tns:islemTuru" />
+  <xs:complexType name="krediTuru">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="birimMiktari" type="xs:int" />
+      <xs:element minOccurs="0" name="faturaNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="fiyat" type="xs:decimal" />
+      <xs:element minOccurs="0" name="odemeTuru" type="tns:odemeTuru" />
+      <xs:element minOccurs="0" name="taksitSayisi" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="krediTuru" nillable="true" type="tns:krediTuru" />
+  <xs:simpleType name="odemeTuru">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Pesin" />
+      <xs:enumeration value="Taksit" />
+      <xs:enumeration value="Ucretsiz" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="odemeTuru" nillable="true" type="tns:odemeTuru" />
+  <xs:complexType name="ArrayOfsozlesme">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="sozlesme" nillable="true" type="tns:sozlesme" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfsozlesme" nillable="true" type="tns:ArrayOfsozlesme" />
+  <xs:complexType name="sozlesme">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FesihTarihi" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="hizmetListesi" nillable="true" type="tns:ArrayOfhizmet" />
+      <xs:element minOccurs="0" name="imzaDurum" type="xs:int" />
+      <xs:element minOccurs="0" name="imzaTarihi" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="otomatikYenilenme" type="xs:boolean" />
+      <xs:element minOccurs="0" name="referansId" type="xs:int" />
+      <xs:element minOccurs="0" name="sozlesmeBaslangicTarihi" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="sozlesmeBitisTarihi" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="tarifeTuru" type="tns:tarifeTuru" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="sozlesme" nillable="true" type="tns:sozlesme" />
+  <xs:complexType name="ArrayOfhizmet">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="hizmet" nillable="true" type="tns:hizmet" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfhizmet" nillable="true" type="tns:ArrayOfhizmet" />
+  <xs:complexType name="hizmet">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="aciklama" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="etiketListesi" nillable="true" type="tns:ArrayOfetiketler" />
+      <xs:element minOccurs="0" name="fiyat" type="xs:decimal" />
+      <xs:element minOccurs="0" name="hizmetTuru" type="tns:hizmetTuru" />
+      <xs:element minOccurs="0" name="iptalTarihi" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="isCancelable" type="xs:boolean" />
+      <xs:element minOccurs="0" name="referansId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="hizmet" nillable="true" type="tns:hizmet" />
+  <xs:simpleType name="tarifeTuru">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="FATURALI" />
+      <xs:enumeration value="KONTORLU" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="tarifeTuru" nillable="true" type="tns:tarifeTuru" />
+  <xs:complexType name="ArrayOfsube">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="sube" nillable="true" type="tns:sube" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfsube" nillable="true" type="tns:ArrayOfsube" />
+  <xs:complexType name="sube">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FirmaId" type="xs:int" />
+      <xs:element minOccurs="0" name="MerkezMi" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ResmiSube" type="xs:boolean" />
+      <xs:element minOccurs="0" name="binaAdi" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="binaNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="caddeAdi" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="efaturaGbEtiket" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="efaturaPkEtiket" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="eirsaliyeGbEtiket" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="eirsaliyePkEtiket" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="eposta" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="fax" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ilceAdi" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="kapiNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="postaKodu" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="referansId" type="xs:int" />
+      <xs:element minOccurs="0" name="sehirAdi" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="subeAdi" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="subeKisaAdi" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="subeKodu" type="xs:int" />
+      <xs:element minOccurs="0" name="taniticiList" nillable="true" type="tns:ArrayOfTaniticiModel" />
+      <xs:element minOccurs="0" name="telefon" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ulke" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="webSitesi" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="sube" nillable="true" type="tns:sube" />
+  <xs:complexType name="ArrayOfTaniticiModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TaniticiModel" nillable="true" type="tns:TaniticiModel" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTaniticiModel" nillable="true" type="tns:ArrayOfTaniticiModel" />
+  <xs:complexType name="TaniticiModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="TaniticiDeger" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TaniticiId" type="xs:int" />
+      <xs:element minOccurs="0" name="TaniticiKod" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TaniticiModel" nillable="true" type="tns:TaniticiModel" />
+  <xs:complexType name="musteriOutput">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="IlId" type="xs:int" />
+      <xs:element minOccurs="0" name="IlceId" type="xs:int" />
+      <xs:element minOccurs="0" name="hata" type="xs:boolean" />
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="hataMesaji" nillable="true" type="q1:ArrayOfstring" />
+      <xs:element minOccurs="0" name="musteri" nillable="true" type="tns:musteri" />
+      <xs:element minOccurs="0" name="referansId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="musteriOutput" nillable="true" type="tns:musteriOutput" />
+</xs:schema>

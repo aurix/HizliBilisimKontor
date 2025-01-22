@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/HizliWebApp.Models.EArsiv" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/HizliWebApp.Models.EArsiv" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="CancelDocumentInput">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AliciAdi" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AppType" type="xs:int" />
+      <xs:element minOccurs="0" name="CancelDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CancelMail" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CancelReason" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DocumentUuid" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FaturaNo" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CancelDocumentInput" nillable="true" type="tns:CancelDocumentInput" />
+  <xs:complexType name="ObjectDocumentInput">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AppType" type="xs:int" />
+      <xs:element minOccurs="0" name="DocumentUuid" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ObjectionDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ObjectionDocumentNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ObjectionReason" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ObjectionType" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ObjectDocumentInput" nillable="true" type="tns:ObjectDocumentInput" />
+</xs:schema>

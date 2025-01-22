@@ -1,0 +1,1068 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/HizliWebApp.Services" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/HizliWebApp.Services" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://econnect.hizliteknoloji.com.tr/Services/HizliService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="https://econnect.hizliteknoloji.com.tr/Services/HizliService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/HizliWebApp.Models.InvoiceModels" />
+  <xs:import schemaLocation="https://econnect.hizliteknoloji.com.tr/Services/HizliService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/HizliWebApp.Models.MustahsilModel" />
+  <xs:import schemaLocation="https://econnect.hizliteknoloji.com.tr/Services/HizliService.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/HizliWebApp.Models.SmmModel" />
+  <xs:import schemaLocation="https://econnect.hizliteknoloji.com.tr/Services/HizliService.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/HizliWebApp.Models.ECheck" />
+  <xs:import schemaLocation="https://econnect.hizliteknoloji.com.tr/Services/HizliService.svc?xsd=xsd9" namespace="http://schemas.datacontract.org/2004/07/HizliWebApp.Models.IrsaliyeModel" />
+  <xs:import schemaLocation="https://econnect.hizliteknoloji.com.tr/Services/HizliService.svc?xsd=xsd10" namespace="http://schemas.datacontract.org/2004/07/HizliWebApp.Models.HbtMusteri" />
+  <xs:complexType name="ArrayOfInputDocument">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="InputDocument" nillable="true" type="tns:InputDocument" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfInputDocument" nillable="true" type="tns:ArrayOfInputDocument" />
+  <xs:complexType name="InputDocument">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AppType" type="xs:int" />
+      <xs:element minOccurs="0" name="BrachCode" type="xs:int" />
+      <xs:element minOccurs="0" name="DestinationIdentifier" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DestinationUrn" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DocumentDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DocumentId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DocumentUUID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ESmmNote" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsDraft" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsDraftSend" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LocalId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SourceUrn" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UpdateDocument" type="xs:boolean" />
+      <xs:element minOccurs="0" name="XmlContent" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="XsltCode" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="InputDocument" nillable="true" type="tns:InputDocument" />
+  <xs:complexType name="ArrayOfResponseMessage">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ResponseMessage" nillable="true" type="tns:ResponseMessage" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfResponseMessage" nillable="true" type="tns:ArrayOfResponseMessage" />
+  <xs:complexType name="ResponseMessage">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="IsSucceeded" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ResponseMessage" nillable="true" type="tns:ResponseMessage" />
+  <xs:complexType name="ControlDocument">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AppType" type="xs:int" />
+      <xs:element minOccurs="0" name="DocumentXml" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ControlDocument" nillable="true" type="tns:ControlDocument" />
+  <xs:complexType name="SendApplicationResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AppType" type="xs:int" />
+      <xs:element minOccurs="0" name="DestinationUrn" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Documents" nillable="true" type="tns:ArrayOfApplicationReponseDocumentInfo" />
+      <xs:element minOccurs="0" name="ResponseCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ResponseDescription" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SourceUrn" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SendApplicationResponse" nillable="true" type="tns:SendApplicationResponse" />
+  <xs:complexType name="ArrayOfApplicationReponseDocumentInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ApplicationReponseDocumentInfo" nillable="true" type="tns:ApplicationReponseDocumentInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfApplicationReponseDocumentInfo" nillable="true" type="tns:ArrayOfApplicationReponseDocumentInfo" />
+  <xs:complexType name="ApplicationReponseDocumentInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DocumentDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DocumentId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DocumentUUID" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ApplicationReponseDocumentInfo" nillable="true" type="tns:ApplicationReponseDocumentInfo" />
+  <xs:complexType name="DocumentList">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="documents" nillable="true" type="tns:ArrayOfDocument" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DocumentList" nillable="true" type="tns:DocumentList" />
+  <xs:complexType name="ArrayOfDocument">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Document" nillable="true" type="tns:Document" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDocument" nillable="true" type="tns:ArrayOfDocument" />
+  <xs:complexType name="Document">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AppResGibResult" type="xs:int" />
+      <xs:element minOccurs="0" name="AppResGibResultExp" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AppType" type="xs:int" />
+      <xs:element minOccurs="0" name="CancelDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CancelOption" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DocumentCurrencyCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DocumentId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DocumentTypeCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EMailDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EnvelopeExp" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EnvelopeStatus" type="xs:int" />
+      <xs:element minOccurs="0" name="EnvelopeUUID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HasEMail" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsAccount" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsArchive" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsInternetSale" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsInvoiced" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsPrinted" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsRead" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsTransferred" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IssueDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="KdvStr" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LocalReferenceId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Messsage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PayableAmount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="PrefixAndYear" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProfileId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SendType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SourceAlias" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Status" type="xs:int" />
+      <xs:element minOccurs="0" name="StatusExp" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SubeKodu" type="xs:int" />
+      <xs:element minOccurs="0" name="TargetAlias" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TargetIdentifier" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TargetTitle" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TaxTotal" type="xs:decimal" />
+      <xs:element minOccurs="0" name="UUID" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Document" nillable="true" type="tns:Document" />
+  <xs:complexType name="TakenFromEntegratorModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AppType" type="xs:int" />
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GUIDList" nillable="true" type="q1:ArrayOfstring" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TakenFromEntegratorModel" nillable="true" type="tns:TakenFromEntegratorModel" />
+  <xs:complexType name="DocumentContent">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DocumentFile" nillable="true" type="xs:base64Binary" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DocumentContent" nillable="true" type="tns:DocumentContent" />
+  <xs:complexType name="GibUserList">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="gibUserLists" nillable="true" type="tns:ArrayOfGibUser" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GibUserList" nillable="true" type="tns:GibUserList" />
+  <xs:complexType name="ArrayOfGibUser">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="GibUser" nillable="true" type="tns:GibUser" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfGibUser" nillable="true" type="tns:ArrayOfGibUser" />
+  <xs:complexType name="GibUser">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Alias" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AliasCreationTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FirstCreationTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Identifier" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GibUser" nillable="true" type="tns:GibUser" />
+  <xs:complexType name="GibUserListAliasCreationList">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="gibUserLists" nillable="true" type="tns:ArrayOfGibUserAliasCreation" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GibUserListAliasCreationList" nillable="true" type="tns:GibUserListAliasCreationList" />
+  <xs:complexType name="ArrayOfGibUserAliasCreation">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="GibUserAliasCreation" nillable="true" type="tns:GibUserAliasCreation" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfGibUserAliasCreation" nillable="true" type="tns:ArrayOfGibUserAliasCreation" />
+  <xs:complexType name="GibUserAliasCreation">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Alias" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AliasCreationTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DeletionTime" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FirstCreationTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Identifier" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GibUserAliasCreation" nillable="true" type="tns:GibUserAliasCreation" />
+  <xs:complexType name="GibUserListAliasCreation">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="gibUserList" nillable="true" type="tns:ArrayOfUserXml" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GibUserListAliasCreation" nillable="true" type="tns:GibUserListAliasCreation" />
+  <xs:complexType name="ArrayOfUserXml">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="UserXml" nillable="true" type="tns:UserXml" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUserXml" nillable="true" type="tns:ArrayOfUserXml" />
+  <xs:complexType name="UserXml">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AccountType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DocumentList" nillable="true" type="tns:ArrayOfDocumentUserXml" />
+      <xs:element minOccurs="0" name="FirstCreationTime" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Identifier" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="_id" nillable="true" type="xs:anyType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UserXml" nillable="true" type="tns:UserXml" />
+  <xs:complexType name="ArrayOfDocumentUserXml">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DocumentUserXml" nillable="true" type="tns:DocumentUserXml" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDocumentUserXml" nillable="true" type="tns:ArrayOfDocumentUserXml" />
+  <xs:complexType name="DocumentUserXml">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AliasList" nillable="true" type="tns:ArrayOfAlias" />
+      <xs:element minOccurs="0" name="DocumentType" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DocumentUserXml" nillable="true" type="tns:DocumentUserXml" />
+  <xs:complexType name="ArrayOfAlias">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Alias" nillable="true" type="tns:Alias" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAlias" nillable="true" type="tns:ArrayOfAlias" />
+  <xs:complexType name="Alias">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CreationTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DeletionTime" nillable="true" type="xs:dateTime" />
+      <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Name" nillable="true" type="q2:ArrayOfstring" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Alias" nillable="true" type="tns:Alias" />
+  <xs:complexType name="GibUserListUserXml">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="gibUser" nillable="true" type="tns:UserXml" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GibUserListUserXml" nillable="true" type="tns:GibUserListUserXml" />
+  <xs:complexType name="ArrayOfInputInvoiceModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="InputInvoiceModel" nillable="true" type="tns:InputInvoiceModel" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfInputInvoiceModel" nillable="true" type="tns:ArrayOfInputInvoiceModel" />
+  <xs:complexType name="InputInvoiceModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AppType" type="xs:int" />
+      <xs:element minOccurs="0" name="DestinationIdentifier" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DestinationUrn" nillable="true" type="xs:string" />
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/HizliWebApp.Models.InvoiceModels" minOccurs="0" name="InvoiceModel" nillable="true" type="q3:InvoiceModel" />
+      <xs:element minOccurs="0" name="IsDraft" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsDraftSend" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsPreview" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LocalId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SourceUrn" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UpdateDocument" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="InputInvoiceModel" nillable="true" type="tns:InputInvoiceModel" />
+  <xs:complexType name="ArrayOfOutputInvoiceModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="OutputInvoiceModel" nillable="true" type="tns:OutputInvoiceModel" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfOutputInvoiceModel" nillable="true" type="tns:ArrayOfOutputInvoiceModel" />
+  <xs:complexType name="OutputInvoiceModel">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="HtmlContent" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="OutputInvoiceModel" nillable="true" type="tns:OutputInvoiceModel" />
+  <xs:complexType name="ArrayOfInputCreditNoteModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="InputCreditNoteModel" nillable="true" type="tns:InputCreditNoteModel" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfInputCreditNoteModel" nillable="true" type="tns:ArrayOfInputCreditNoteModel" />
+  <xs:complexType name="InputCreditNoteModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AppType" type="xs:int" />
+      <xs:element minOccurs="0" name="DestinationIdentifier" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EMail" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsDraft" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsDraftSend" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsPreview" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LocalId" nillable="true" type="xs:string" />
+      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/HizliWebApp.Models.MustahsilModel" minOccurs="0" name="Mustahsil" nillable="true" type="q4:Mustahsil" />
+      <xs:element minOccurs="0" name="UpdateDocument" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="InputCreditNoteModel" nillable="true" type="tns:InputCreditNoteModel" />
+  <xs:complexType name="ArrayOfOutputCreditNoteModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="OutputCreditNoteModel" nillable="true" type="tns:OutputCreditNoteModel" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfOutputCreditNoteModel" nillable="true" type="tns:ArrayOfOutputCreditNoteModel" />
+  <xs:complexType name="OutputCreditNoteModel">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="HtmlContent" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="OutputCreditNoteModel" nillable="true" type="tns:OutputCreditNoteModel" />
+  <xs:complexType name="ArrayOfInputReceiptModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="InputReceiptModel" nillable="true" type="tns:InputReceiptModel" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfInputReceiptModel" nillable="true" type="tns:ArrayOfInputReceiptModel" />
+  <xs:complexType name="InputReceiptModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AppType" type="xs:int" />
+      <xs:element minOccurs="0" name="DestinationIdentifier" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EMail" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsDraft" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsDraftSend" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsPreview" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LocalId" nillable="true" type="xs:string" />
+      <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/HizliWebApp.Models.SmmModel" minOccurs="0" name="Smm" nillable="true" type="q5:Esmm" />
+      <xs:element minOccurs="0" name="UpdateDocument" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="InputReceiptModel" nillable="true" type="tns:InputReceiptModel" />
+  <xs:complexType name="ArrayOfOutputReceiptModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="OutputReceiptModel" nillable="true" type="tns:OutputReceiptModel" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfOutputReceiptModel" nillable="true" type="tns:ArrayOfOutputReceiptModel" />
+  <xs:complexType name="OutputReceiptModel">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="HtmlContent" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="OutputReceiptModel" nillable="true" type="tns:OutputReceiptModel" />
+  <xs:complexType name="ArrayOfInputCheckModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="InputCheckModel" nillable="true" type="tns:InputCheckModel" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfInputCheckModel" nillable="true" type="tns:ArrayOfInputCheckModel" />
+  <xs:complexType name="InputCheckModel">
+    <xs:sequence>
+      <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/HizliWebApp.Models.ECheck" minOccurs="0" name="Adisyon" nillable="true" type="q6:Adisyon" />
+      <xs:element minOccurs="0" name="AppType" type="xs:int" />
+      <xs:element minOccurs="0" name="DestinationIdentifier" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EMail" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsDraft" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsDraftSend" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsPreview" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LocalId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UpdateDocument" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="InputCheckModel" nillable="true" type="tns:InputCheckModel" />
+  <xs:complexType name="ArrayOfOutputCheckModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="OutputCheckModel" nillable="true" type="tns:OutputCheckModel" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfOutputCheckModel" nillable="true" type="tns:ArrayOfOutputCheckModel" />
+  <xs:complexType name="OutputCheckModel">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="HtmlContent" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="OutputCheckModel" nillable="true" type="tns:OutputCheckModel" />
+  <xs:complexType name="ArrayOfInputDespatchAdviceModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="InputDespatchAdviceModel" nillable="true" type="tns:InputDespatchAdviceModel" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfInputDespatchAdviceModel" nillable="true" type="tns:ArrayOfInputDespatchAdviceModel" />
+  <xs:complexType name="InputDespatchAdviceModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AppType" type="xs:int" />
+      <xs:element minOccurs="0" name="DestinationIdentifier" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DestinationUrn" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsDraft" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsDraftSend" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsPreview" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LocalId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SourceUrn" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UpdateDocument" type="xs:boolean" />
+      <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/HizliWebApp.Models.IrsaliyeModel" minOccurs="0" name="irsaliye" nillable="true" type="q7:Irsaliye" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="InputDespatchAdviceModel" nillable="true" type="tns:InputDespatchAdviceModel" />
+  <xs:complexType name="ArrayOfOutputDespatchAdviceModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="OutputDespatchAdviceModel" nillable="true" type="tns:OutputDespatchAdviceModel" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfOutputDespatchAdviceModel" nillable="true" type="tns:ArrayOfOutputDespatchAdviceModel" />
+  <xs:complexType name="OutputDespatchAdviceModel">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="HtmlContent" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="OutputDespatchAdviceModel" nillable="true" type="tns:OutputDespatchAdviceModel" />
+  <xs:complexType name="InvoiceIdAndDateModel">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="InvoiceDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="InvoiceId" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NextDocumentId" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="InvoiceIdAndDateModel" nillable="true" type="tns:InvoiceIdAndDateModel" />
+  <xs:complexType name="MailSendInput">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="MailSendList" nillable="true" type="tns:ArrayOfMailSend" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MailSendInput" nillable="true" type="tns:MailSendInput" />
+  <xs:complexType name="ArrayOfMailSend">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MailSend" nillable="true" type="tns:MailSend" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMailSend" nillable="true" type="tns:ArrayOfMailSend" />
+  <xs:complexType name="MailSend">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AppType" type="xs:int" />
+      <xs:element minOccurs="0" name="Ettn" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MailSend" nillable="true" type="tns:MailSend" />
+  <xs:complexType name="MailSendOutput">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="MailSendOutList" nillable="true" type="tns:ArrayOfMailSendOut" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MailSendOutput" nillable="true" type="tns:MailSendOutput" />
+  <xs:complexType name="ArrayOfMailSendOut">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MailSendOut" nillable="true" type="tns:MailSendOut" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMailSendOut" nillable="true" type="tns:ArrayOfMailSendOut" />
+  <xs:complexType name="MailSendOut">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="mailSend" nillable="true" type="tns:MailSend" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MailSendOut" nillable="true" type="tns:MailSendOut" />
+  <xs:complexType name="UploadDocumentTransferInput">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AppType" type="xs:int" />
+      <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/HizliWebApp.Models.InvoiceModels" minOccurs="0" name="Tip" type="q8:TransferTip" />
+      <xs:element minOccurs="0" name="ZipContent" nillable="true" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UploadDocumentTransferInput" nillable="true" type="tns:UploadDocumentTransferInput" />
+  <xs:simpleType name="BirimTuru">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="FaturaAdedi" />
+      <xs:enumeration value="AlanBoyutu" />
+      <xs:enumeration value="ArsivKasa" />
+      <xs:enumeration value="Diger" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="BirimTuru" nillable="true" type="tns:BirimTuru" />
+  <xs:complexType name="EntResponseUser">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="kalanKontor" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="musteriBilgileri" nillable="true" type="tns:MusteriBilgileri" />
+          <xs:element minOccurs="0" name="sonucVerisi" nillable="true" type="tns:KrediSonucu" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntResponseUser" nillable="true" type="tns:EntResponseUser" />
+  <xs:complexType name="MusteriBilgileri">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Adi" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FirmaAdi" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Soyadi" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VergiNoTCKimlikNo" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MusteriBilgileri" nillable="true" type="tns:MusteriBilgileri" />
+  <xs:complexType name="KrediSonucu">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="harcananAlanMiktari" type="xs:decimal" />
+      <xs:element minOccurs="0" name="harcananEArsivFaturaMiktari" type="xs:int" />
+      <xs:element minOccurs="0" name="harcananGelenFaturaMiktari" type="xs:int" />
+      <xs:element minOccurs="0" name="harcananGidenFaturaMiktari" type="xs:int" />
+      <xs:element minOccurs="0" name="toplamAlanBoyutu" type="xs:decimal" />
+      <xs:element minOccurs="0" name="toplamFaturaAdedi" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="KrediSonucu" nillable="true" type="tns:KrediSonucu" />
+  <xs:complexType name="KontorYukleModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="birimTuru" type="tns:BirimTuru" />
+      <xs:element minOccurs="0" name="islemTuru" type="tns:IslemTuru" />
+      <xs:element minOccurs="0" name="krediTuru" nillable="true" type="tns:KrediTuru" />
+      <xs:element minOccurs="0" name="vkn_tckn" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="KontorYukleModel" nillable="true" type="tns:KontorYukleModel" />
+  <xs:simpleType name="IslemTuru">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Satinalma" />
+      <xs:enumeration value="Hediye" />
+      <xs:enumeration value="Transfer" />
+      <xs:enumeration value="Iade" />
+      <xs:enumeration value="Devir" />
+      <xs:enumeration value="Miaddusum" />
+      <xs:enumeration value="Onceki_Donem_Harcama" />
+      <xs:enumeration value="Duzenleme_Giris" />
+      <xs:enumeration value="Duzenleme_Cıkıs" />
+      <xs:enumeration value="Bayi_Satis" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="IslemTuru" nillable="true" type="tns:IslemTuru" />
+  <xs:complexType name="KrediTuru">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="aciklama" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="baslangicTarihi" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="birimFiyat" type="xs:decimal" />
+      <xs:element minOccurs="0" name="birimMiktari" type="xs:int" />
+      <xs:element minOccurs="0" name="faturaNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="odemeTuru" type="tns:OdemeTuru" />
+      <xs:element minOccurs="0" name="sonKullanimTarihi" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="taksitSayisi" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="KrediTuru" nillable="true" type="tns:KrediTuru" />
+  <xs:simpleType name="OdemeTuru">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Pesin" />
+      <xs:enumeration value="Taksit" />
+      <xs:enumeration value="Ucretsiz" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="OdemeTuru" nillable="true" type="tns:OdemeTuru" />
+  <xs:complexType name="KrediRaporOutput">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="krediRaporList" nillable="true" type="tns:ArrayOfKrediRapor" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="KrediRaporOutput" nillable="true" type="tns:KrediRaporOutput" />
+  <xs:complexType name="ArrayOfKrediRapor">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="KrediRapor" nillable="true" type="tns:KrediRapor" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfKrediRapor" nillable="true" type="tns:ArrayOfKrediRapor" />
+  <xs:complexType name="KrediRapor">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Aciklama" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BirimMiktari" type="xs:decimal" />
+      <xs:element minOccurs="0" name="BirimTuru" type="tns:BirimTuru" />
+      <xs:element minOccurs="0" name="Fiyat" type="xs:decimal" />
+      <xs:element minOccurs="0" name="IslemTuru" type="tns:IslemTuru" />
+      <xs:element minOccurs="0" name="KontorId" type="xs:long" />
+      <xs:element minOccurs="0" name="KullanimBaslangicTarihi" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="KullanimBitisTarihi" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OdemeTuru" type="tns:OdemeTuru" />
+      <xs:element minOccurs="0" name="SatinAlmaTarihi" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TaksitSayisi" type="xs:int" />
+      <xs:element minOccurs="0" name="VknTckn" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="KrediRapor" nillable="true" type="tns:KrediRapor" />
+  <xs:complexType name="CreditInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="remainCredit" type="xs:decimal" />
+          <xs:element minOccurs="0" name="totalCredit" type="xs:decimal" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CreditInfo" nillable="true" type="tns:CreditInfo" />
+  <xs:complexType name="MusteriAktifPasifModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AktifPasif" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Mesaj" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VknTckn" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MusteriAktifPasifModel" nillable="true" type="tns:MusteriAktifPasifModel" />
+  <xs:complexType name="UpdateUserWsModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="VergiNoTCKimlikNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WS_KullaniciAdi" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WS_Sifre" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UpdateUserWsModel" nillable="true" type="tns:UpdateUserWsModel" />
+  <xs:simpleType name="CodeListType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="DURUM" />
+      <xs:enumeration value="ZARFDURUM" />
+      <xs:enumeration value="PROFILE" />
+      <xs:enumeration value="FATURATURU" />
+      <xs:enumeration value="PARABIRIMI" />
+      <xs:enumeration value="BIRIM" />
+      <xs:enumeration value="ODEMETURU" />
+      <xs:enumeration value="ODEMEKANAL" />
+      <xs:enumeration value="IHRACKAYITLI" />
+      <xs:enumeration value="ISTISNA" />
+      <xs:enumeration value="OZELMATRAH" />
+      <xs:enumeration value="TEVKIFAT" />
+      <xs:enumeration value="ESYAKAPCINSI" />
+      <xs:enumeration value="ESYAGONDERIMSEKLI" />
+      <xs:enumeration value="TESLIMSARTI" />
+      <xs:enumeration value="ULKE" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="CodeListType" nillable="true" type="tns:CodeListType" />
+  <xs:complexType name="CodeList">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Codes" nillable="true" type="tns:ArrayOfCodeModel" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CodeList" nillable="true" type="tns:CodeList" />
+  <xs:complexType name="ArrayOfCodeModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CodeModel" nillable="true" type="tns:CodeModel" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCodeModel" nillable="true" type="tns:ArrayOfCodeModel" />
+  <xs:complexType name="CodeModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Explanation" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Percent" nillable="true" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CodeModel" nillable="true" type="tns:CodeModel" />
+  <xs:complexType name="DashboardOutput">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="archiveCount" type="xs:int" />
+          <xs:element minOccurs="0" name="bayiCaseRemainder" type="xs:decimal" />
+          <xs:element minOccurs="0" name="bayiCaseStatus" type="xs:decimal" />
+          <xs:element minOccurs="0" name="bayiCaseTotal" type="xs:decimal" />
+          <xs:element minOccurs="0" name="bayiCreditRemainder" type="xs:int" />
+          <xs:element minOccurs="0" name="bayiCreditStatus" type="xs:int" />
+          <xs:element minOccurs="0" name="bayiCreditTotal" type="xs:int" />
+          <xs:element minOccurs="0" name="bayiMemoryRemainder" type="xs:decimal" />
+          <xs:element minOccurs="0" name="bayiMemoryStatus" type="xs:decimal" />
+          <xs:element minOccurs="0" name="bayiMemoryTotal" type="xs:decimal" />
+          <xs:element minOccurs="0" name="caseRemainder" type="xs:decimal" />
+          <xs:element minOccurs="0" name="caseStatus" type="xs:decimal" />
+          <xs:element minOccurs="0" name="caseTotal" type="xs:decimal" />
+          <xs:element minOccurs="0" name="checkCount" type="xs:int" />
+          <xs:element minOccurs="0" name="creditRemainder" type="xs:int" />
+          <xs:element minOccurs="0" name="creditStatus" type="xs:int" />
+          <xs:element minOccurs="0" name="creditTotal" type="xs:int" />
+          <xs:element minOccurs="0" name="despatchInboxCount" type="xs:int" />
+          <xs:element minOccurs="0" name="despatchOutboxCount" type="xs:int" />
+          <xs:element minOccurs="0" name="exchangeCount" type="xs:int" />
+          <xs:element minOccurs="0" name="inboxCount" type="xs:int" />
+          <xs:element minOccurs="0" name="ledgerCount" type="xs:decimal" />
+          <xs:element minOccurs="0" name="mVoucherCount" type="xs:int" />
+          <xs:element minOccurs="0" name="memoryRemainder" type="xs:decimal" />
+          <xs:element minOccurs="0" name="memoryStatus" type="xs:decimal" />
+          <xs:element minOccurs="0" name="memoryTotal" type="xs:decimal" />
+          <xs:element minOccurs="0" name="outboxCount" type="xs:int" />
+          <xs:element minOccurs="0" name="sVoucherCount" type="xs:int" />
+          <xs:element minOccurs="0" name="tarifeTuruList" nillable="true" type="tns:ArrayOfTarifeTuru" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DashboardOutput" nillable="true" type="tns:DashboardOutput" />
+  <xs:complexType name="ArrayOfTarifeTuru">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TarifeTuru" nillable="true" type="tns:TarifeTuru" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTarifeTuru" nillable="true" type="tns:ArrayOfTarifeTuru" />
+  <xs:complexType name="TarifeTuru">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Aciklama" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TarifeTuruId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TarifeTuru" nillable="true" type="tns:TarifeTuru" />
+  <xs:complexType name="PrefixCodeResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseMessage">
+        <xs:sequence>
+          <xs:element xmlns:q9="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Prefix" nillable="true" type="q9:ArrayOfstring" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PrefixCodeResponse" nillable="true" type="tns:PrefixCodeResponse" />
+  <xs:complexType name="StockResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Stock" nillable="true" type="tns:ArrayOfStock" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="StockResponse" nillable="true" type="tns:StockResponse" />
+  <xs:complexType name="ArrayOfStock">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Stock" nillable="true" type="tns:Stock" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfStock" nillable="true" type="tns:ArrayOfStock" />
+  <xs:complexType name="Stock">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CurrencyCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ItemIdBuyer" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ItemIdSeller" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Note" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="QuantityAmount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="QuantityUnitCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RequiredCustomsID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StockId" type="xs:int" />
+      <xs:element minOccurs="0" name="TaxExemCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TaxPercent" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Stock" nillable="true" type="tns:Stock" />
+  <xs:complexType name="StockOut">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="stock" nillable="true" type="tns:Stock" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="StockOut" nillable="true" type="tns:StockOut" />
+  <xs:complexType name="LoginInput">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="apiKey" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LoginInput" nillable="true" type="tns:LoginInput" />
+  <xs:complexType name="ArrayOfLoginOutput">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="LoginOutput" nillable="true" type="tns:LoginOutput" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfLoginOutput" nillable="true" type="tns:ArrayOfLoginOutput" />
+  <xs:complexType name="LoginOutput">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Adi" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Adres" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="AktifPasif" type="xs:boolean" />
+          <xs:element minOccurs="0" name="BayiParentId" type="xs:int" />
+          <xs:element minOccurs="0" name="CustomerId" type="xs:int" />
+          <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Fax" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FirmaId" type="xs:int" />
+          <xs:element minOccurs="0" name="Il" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Ilce" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="KullaniciId" type="xs:int" />
+          <xs:element minOccurs="0" name="MusteriAdi" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ServicePassword" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ServiceUsername" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Soyadi" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SubeKodu" type="xs:int" />
+          <xs:element minOccurs="0" name="Telefon" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Token" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Unvan" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="VergiDairesi" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="VknTckn" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="WebSitesi" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="eFaturaGb" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="eIrsaliyeGb" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="LoginOutput" nillable="true" type="tns:LoginOutput" />
+  <xs:complexType name="Xslt">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="IsPreview" type="xs:boolean" />
+      <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/HizliWebApp.Models.HbtMusteri" minOccurs="0" name="ServiceType" type="q10:hizmetTuru" />
+      <xs:element minOccurs="0" name="XsltCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="XsltManuelContent" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="XsltTemplate" nillable="true" type="tns:XsltTemplate" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Xslt" nillable="true" type="tns:Xslt" />
+  <xs:complexType name="XsltTemplate">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BankInfos" nillable="true" type="tns:ArrayOfBankInfos" />
+      <xs:element minOccurs="0" name="KaseImzaHeight" type="xs:int" />
+      <xs:element minOccurs="0" name="KaseImzaImage" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="KaseImzaWidth" type="xs:int" />
+      <xs:element minOccurs="0" name="LogoHeight" type="xs:int" />
+      <xs:element minOccurs="0" name="LogoImage" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="LogoWidth" type="xs:int" />
+      <xs:element minOccurs="0" name="Notes" nillable="true" type="tns:ArrayOfXsltNote" />
+      <xs:element minOccurs="0" name="ThemeColor" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="XsltTemplate" nillable="true" type="tns:XsltTemplate" />
+  <xs:complexType name="ArrayOfBankInfos">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BankInfos" nillable="true" type="tns:BankInfos" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBankInfos" nillable="true" type="tns:ArrayOfBankInfos" />
+  <xs:complexType name="BankInfos">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AccountNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BranchCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BranchName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Currency" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Iban" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Swift" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BankInfos" nillable="true" type="tns:BankInfos" />
+  <xs:complexType name="ArrayOfXsltNote">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="XsltNote" nillable="true" type="tns:XsltNote" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfXsltNote" nillable="true" type="tns:ArrayOfXsltNote" />
+  <xs:complexType name="XsltNote">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Note" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="XsltNote" nillable="true" type="tns:XsltNote" />
+  <xs:complexType name="XsltOut">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="HtmlContent" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="XsltOut" nillable="true" type="tns:XsltOut" />
+  <xs:complexType name="XsltListOut">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="xsltList" nillable="true" type="tns:ArrayOfXsltList" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="XsltListOut" nillable="true" type="tns:XsltListOut" />
+  <xs:complexType name="ArrayOfXsltList">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="XsltList" nillable="true" type="tns:XsltList" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfXsltList" nillable="true" type="tns:ArrayOfXsltList" />
+  <xs:complexType name="XsltList">
+    <xs:sequence>
+      <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/HizliWebApp.Models.HbtMusteri" minOccurs="0" name="ServiceType" type="q11:hizmetTuru" />
+      <xs:element minOccurs="0" name="XsltCode" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="XsltList" nillable="true" type="tns:XsltList" />
+  <xs:complexType name="XsltContentOut">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseMessage">
+        <xs:sequence>
+          <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/HizliWebApp.Models.HbtMusteri" minOccurs="0" name="ServiceType" type="q12:hizmetTuru" />
+          <xs:element minOccurs="0" name="XsltCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="XsltManuelContent" nillable="true" type="xs:base64Binary" />
+          <xs:element minOccurs="0" name="XsltTemplate" nillable="true" type="tns:XsltTemplate" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="XsltContentOut" nillable="true" type="tns:XsltContentOut" />
+  <xs:complexType name="ConvertDespachsToInvoiceOut">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="InvoiceXml" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ConvertDespachsToInvoiceOut" nillable="true" type="tns:ConvertDespachsToInvoiceOut" />
+  <xs:complexType name="ReSendMailInput">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AppType" type="xs:int" />
+      <xs:element minOccurs="0" name="EMailAdres" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PdfGonder" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Uuid" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="XmlGonder" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Year" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ReSendMailInput" nillable="true" type="tns:ReSendMailInput" />
+  <xs:complexType name="GetDocumentListLocalIdModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AppType" type="xs:int" />
+      <xs:element xmlns:q13="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="LocalIds" nillable="true" type="q13:ArrayOfstring" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetDocumentListLocalIdModel" nillable="true" type="tns:GetDocumentListLocalIdModel" />
+  <xs:complexType name="ArrayOfCustomerGibUserEnvelopeModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CustomerGibUserEnvelopeModel" nillable="true" type="tns:CustomerGibUserEnvelopeModel" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCustomerGibUserEnvelopeModel" nillable="true" type="tns:ArrayOfCustomerGibUserEnvelopeModel" />
+  <xs:complexType name="CustomerGibUserEnvelopeModel">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="creation_date_time" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="envelope_type" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="gib_result" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="gib_result_explanation" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="record_id" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="role_code" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="service_name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="work_scope_code" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CustomerGibUserEnvelopeModel" nillable="true" type="tns:CustomerGibUserEnvelopeModel" />
+  <xs:complexType name="Cari">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Adi" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AktifPasif" type="xs:boolean" />
+      <xs:element minOccurs="0" name="BinaAdi" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CaddeSokak" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EMail" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Fax" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FirmaAdi" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FirmaId" type="xs:int" />
+      <xs:element minOccurs="0" name="IlAdi" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IlceAdi" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="KapiNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MahalleSemt" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MusteriId" type="xs:int" />
+      <xs:element minOccurs="0" name="MusteriKodu" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PostaKodu" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Soyadi" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SubeParentId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Telefon" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UlkeAdi" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VergiDairesi" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VergiNoTCKimlikNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WebSite" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Cari" nillable="true" type="tns:Cari" />
+  <xs:complexType name="CariOut">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Cari" nillable="true" type="tns:Cari" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CariOut" nillable="true" type="tns:CariOut" />
+  <xs:complexType name="LoginUtil">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="secretKey" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LoginUtil" nillable="true" type="tns:LoginUtil" />
+  <xs:complexType name="LoginOut">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="LoginOut" nillable="true" type="tns:LoginOut" />
+</xs:schema>

@@ -1,0 +1,835 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://econnect.hizliteknoloji.com.tr/Services/HizliService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/HizliWebApp.Services" />
+  <xs:import schemaLocation="https://econnect.hizliteknoloji.com.tr/Services/HizliService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="https://econnect.hizliteknoloji.com.tr/Services/HizliService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/HizliWebApp.Models.EArsiv" />
+  <xs:import schemaLocation="https://econnect.hizliteknoloji.com.tr/Services/HizliService.svc?xsd=xsd10" namespace="http://schemas.datacontract.org/2004/07/HizliWebApp.Models.HbtMusteri" />
+  <xs:import schemaLocation="https://econnect.hizliteknoloji.com.tr/Services/HizliService.svc?xsd=xsd11" namespace="http://schemas.datacontract.org/2004/07/HizliWebApp.Models.Turmob" />
+  <xs:import schemaLocation="https://econnect.hizliteknoloji.com.tr/Services/HizliService.svc?xsd=xsd12" namespace="http://schemas.datacontract.org/2004/07/HizliWebApp.Models" />
+  <xs:element name="SendDocument">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/HizliWebApp.Services" minOccurs="0" name="inputDocument" nillable="true" type="q1:ArrayOfInputDocument" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendDocumentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/HizliWebApp.Services" minOccurs="0" name="SendDocumentResult" nillable="true" type="q2:ArrayOfResponseMessage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ControlDocumentXML">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/HizliWebApp.Services" minOccurs="0" name="controlDocument" nillable="true" type="q3:ControlDocument" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ControlDocumentXMLResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/HizliWebApp.Services" minOccurs="0" name="ControlDocumentXMLResult" nillable="true" type="q4:ResponseMessage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendApplicationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/HizliWebApp.Services" minOccurs="0" name="sendApplicationResponse" nillable="true" type="q5:SendApplicationResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendApplicationResponseResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/HizliWebApp.Services" minOccurs="0" name="SendApplicationResponseResult" nillable="true" type="q6:ResponseMessage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendApplicationResponseXml">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/HizliWebApp.Services" minOccurs="0" name="inputDocument" nillable="true" type="q7:InputDocument" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendApplicationResponseXmlResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/HizliWebApp.Services" minOccurs="0" name="SendApplicationResponseXmlResult" nillable="true" type="q8:ResponseMessage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDocumentList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AppType" type="xs:int" />
+        <xs:element minOccurs="0" name="DateType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="StartDate" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="EndDate" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="IsNew" type="xs:boolean" />
+        <xs:element minOccurs="0" name="IsExport" type="xs:boolean" />
+        <xs:element minOccurs="0" name="IsDraft" nillable="true" type="xs:boolean" />
+        <xs:element minOccurs="0" name="TakenFromEntegrator" nillable="true" type="xs:string" />
+        <xs:element xmlns:q9="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="BranchCodes" nillable="true" type="q9:ArrayOfint" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDocumentListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/HizliWebApp.Services" minOccurs="0" name="GetDocumentListResult" nillable="true" type="q10:DocumentList" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDocumentListGUID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AppType" type="xs:int" />
+        <xs:element xmlns:q11="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GUIDList" nillable="true" type="q11:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDocumentListGUIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/HizliWebApp.Services" minOccurs="0" name="GetDocumentListGUIDResult" nillable="true" type="q12:DocumentList" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetTakenFromEntegrator">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/HizliWebApp.Services" minOccurs="0" name="takenFromEntegratorModel" nillable="true" type="q13:TakenFromEntegratorModel" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetTakenFromEntegratorResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/HizliWebApp.Services" minOccurs="0" name="SetTakenFromEntegratorResult" nillable="true" type="q14:ResponseMessage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetTakenFromEntegratorAlternative">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AppType" type="xs:int" />
+        <xs:element xmlns:q15="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GUIDList" nillable="true" type="q15:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetTakenFromEntegratorAlternativeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/HizliWebApp.Services" minOccurs="0" name="SetTakenFromEntegratorAlternativeResult" nillable="true" type="q16:ResponseMessage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDocumentFile">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AppType" type="xs:int" />
+        <xs:element minOccurs="0" name="Uuid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Tur" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="IsDraft" nillable="true" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDocumentFileResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/HizliWebApp.Services" minOccurs="0" name="GetDocumentFileResult" nillable="true" type="q17:DocumentContent" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetDocumentFlag">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AppType" type="xs:int" />
+        <xs:element minOccurs="0" name="Uuid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Flag_Name" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Flag_Value" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetDocumentFlagResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/HizliWebApp.Services" minOccurs="0" name="SetDocumentFlagResult" nillable="true" type="q18:ResponseMessage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CancelEArsivInvoice">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Uuid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="CancelReason" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CancelEArsivInvoiceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/HizliWebApp.Services" minOccurs="0" name="CancelEArsivInvoiceResult" nillable="true" type="q19:ResponseMessage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CancelDocument">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/HizliWebApp.Models.EArsiv" minOccurs="0" name="cancelDocument" nillable="true" type="q20:CancelDocumentInput" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CancelDocumentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/HizliWebApp.Services" minOccurs="0" name="CancelDocumentResult" nillable="true" type="q21:ResponseMessage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObjectDocument">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/HizliWebApp.Models.EArsiv" minOccurs="0" name="objectDocument" nillable="true" type="q22:ObjectDocumentInput" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObjectDocumentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/HizliWebApp.Services" minOccurs="0" name="ObjectDocumentResult" nillable="true" type="q23:ResponseMessage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetGibUserList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AppType" type="xs:int" />
+        <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Identifier" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetGibUserListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/HizliWebApp.Services" minOccurs="0" name="GetGibUserListResult" nillable="true" type="q24:GibUserList" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetGibUserAliasCreationTimeList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AppType" type="xs:int" />
+        <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="StartDate" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="EndDate" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetGibUserAliasCreationTimeListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/HizliWebApp.Services" minOccurs="0" name="GetGibUserAliasCreationTimeListResult" nillable="true" type="q25:GibUserListAliasCreationList" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetGibUserFile">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AppType" type="xs:int" />
+        <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetGibUserFileResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/HizliWebApp.Services" minOccurs="0" name="GetGibUserFileResult" nillable="true" type="q26:DocumentContent" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetGibUserAliasCreationTime">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="StartDate" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="EndDate" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetGibUserAliasCreationTimeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/HizliWebApp.Services" minOccurs="0" name="GetGibUserAliasCreationTimeResult" nillable="true" type="q27:GibUserListAliasCreation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetGibUserListUserXml">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Identifier" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetGibUserListUserXmlResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/HizliWebApp.Services" minOccurs="0" name="GetGibUserListUserXmlResult" nillable="true" type="q28:GibUserListUserXml" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendInvoiceModel">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/HizliWebApp.Services" minOccurs="0" name="inputDocument" nillable="true" type="q29:ArrayOfInputInvoiceModel" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendInvoiceModelResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/HizliWebApp.Services" minOccurs="0" name="SendInvoiceModelResult" nillable="true" type="q30:ArrayOfOutputInvoiceModel" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendCreditNoteModel">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/HizliWebApp.Services" minOccurs="0" name="inputDocument" nillable="true" type="q31:ArrayOfInputCreditNoteModel" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendCreditNoteModelResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/HizliWebApp.Services" minOccurs="0" name="SendCreditNoteModelResult" nillable="true" type="q32:ArrayOfOutputCreditNoteModel" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendReceiptModel">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/HizliWebApp.Services" minOccurs="0" name="inputDocument" nillable="true" type="q33:ArrayOfInputReceiptModel" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendReceiptModelResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/HizliWebApp.Services" minOccurs="0" name="SendReceiptModelResult" nillable="true" type="q34:ArrayOfOutputReceiptModel" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendCheckModel">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/HizliWebApp.Services" minOccurs="0" name="inputDocument" nillable="true" type="q35:ArrayOfInputCheckModel" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendCheckModelResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/HizliWebApp.Services" minOccurs="0" name="SendCheckModelResult" nillable="true" type="q36:ArrayOfOutputCheckModel" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendDespatchAdviceModel">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/HizliWebApp.Services" minOccurs="0" name="inputDocument" nillable="true" type="q37:ArrayOfInputDespatchAdviceModel" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendDespatchAdviceModelResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/HizliWebApp.Services" minOccurs="0" name="SendDespatchAdviceModelResult" nillable="true" type="q38:ArrayOfOutputDespatchAdviceModel" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLastInvoiceIdAndDate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AppType" type="xs:int" />
+        <xs:element minOccurs="0" name="Seri" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLastInvoiceIdAndDateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/HizliWebApp.Services" minOccurs="0" name="GetLastInvoiceIdAndDateResult" nillable="true" type="q39:InvoiceIdAndDateModel" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetEmailSend">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/HizliWebApp.Services" minOccurs="0" name="mailSendInput" nillable="true" type="q40:MailSendInput" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetEmailSendResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/HizliWebApp.Services" minOccurs="0" name="SetEmailSendResult" nillable="true" type="q41:MailSendOutput" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UploadDocumentTransfer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/HizliWebApp.Services" minOccurs="0" name="input" nillable="true" type="q42:UploadDocumentTransferInput" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UploadDocumentTransferResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q43="http://schemas.datacontract.org/2004/07/HizliWebApp.Services" minOccurs="0" name="UploadDocumentTransferResult" nillable="true" type="q43:ResponseMessage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDocumentListTransfer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AppType" type="xs:int" />
+        <xs:element minOccurs="0" name="DateType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="StartDate" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="EndDate" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDocumentListTransferResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q44="http://schemas.datacontract.org/2004/07/HizliWebApp.Services" minOccurs="0" name="GetDocumentListTransferResult" nillable="true" type="q44:DocumentList" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDocumentFileTransfer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AppType" type="xs:int" />
+        <xs:element minOccurs="0" name="Uuid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Tur" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDocumentFileTransferResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q45="http://schemas.datacontract.org/2004/07/HizliWebApp.Services" minOccurs="0" name="GetDocumentFileTransferResult" nillable="true" type="q45:DocumentContent" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="KalanKontorSorgula">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="vkn_tckn" nillable="true" type="xs:string" />
+        <xs:element xmlns:q46="http://schemas.datacontract.org/2004/07/HizliWebApp.Services" minOccurs="0" name="birimTuru" type="q46:BirimTuru" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="KalanKontorSorgulaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q47="http://schemas.datacontract.org/2004/07/HizliWebApp.Services" minOccurs="0" name="KalanKontorSorgulaResult" nillable="true" type="q47:EntResponseUser" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="KontorYukle">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q48="http://schemas.datacontract.org/2004/07/HizliWebApp.Services" minOccurs="0" name="kontor" nillable="true" type="q48:KontorYukleModel" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="KontorYukleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q49="http://schemas.datacontract.org/2004/07/HizliWebApp.Services" minOccurs="0" name="KontorYukleResult" nillable="true" type="q49:ResponseMessage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="KontorHareketleriVknTckn">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="vkn_tckn" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="KontorHareketleriVknTcknResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q50="http://schemas.datacontract.org/2004/07/HizliWebApp.Services" minOccurs="0" name="KontorHareketleriVknTcknResult" nillable="true" type="q50:KrediRaporOutput" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="KontorHareketleri">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="KontorHareketleriResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q51="http://schemas.datacontract.org/2004/07/HizliWebApp.Services" minOccurs="0" name="KontorHareketleriResult" nillable="true" type="q51:KrediRaporOutput" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCustomerCreditCount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="vkn_tckn" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCustomerCreditCountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q52="http://schemas.datacontract.org/2004/07/HizliWebApp.Services" minOccurs="0" name="GetCustomerCreditCountResult" nillable="true" type="q52:CreditInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MusteriOlustur">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q53="http://schemas.datacontract.org/2004/07/HizliWebApp.Models.HbtMusteri" minOccurs="0" name="hbtMusteri" nillable="true" type="q53:musteri" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MusteriOlusturResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q54="http://schemas.datacontract.org/2004/07/HizliWebApp.Models.HbtMusteri" minOccurs="0" name="MusteriOlusturResult" nillable="true" type="q54:musteriOutput" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MusteriGetir">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="vergikimlikno" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MusteriGetirResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q55="http://schemas.datacontract.org/2004/07/HizliWebApp.Models.HbtMusteri" minOccurs="0" name="MusteriGetirResult" nillable="true" type="q55:musteriOutput" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MusteriAktifPasif">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q56="http://schemas.datacontract.org/2004/07/HizliWebApp.Services" minOccurs="0" name="input" nillable="true" type="q56:MusteriAktifPasifModel" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MusteriAktifPasifResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q57="http://schemas.datacontract.org/2004/07/HizliWebApp.Services" minOccurs="0" name="MusteriAktifPasifResult" nillable="true" type="q57:ResponseMessage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MukellefBilgisiSorgulama">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q58="http://schemas.datacontract.org/2004/07/HizliWebApp.Models.Turmob" minOccurs="0" name="mukellefBilgisi" nillable="true" type="q58:MukellefBilgisi" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MukellefBilgisiSorgulamaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q59="http://schemas.datacontract.org/2004/07/HizliWebApp.Models.Turmob" minOccurs="0" name="MukellefBilgisiSorgulamaResult" nillable="true" type="q59:MukellefOutput" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateUserWs">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q60="http://schemas.datacontract.org/2004/07/HizliWebApp.Services" minOccurs="0" name="input" nillable="true" type="q60:UpdateUserWsModel" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateUserWsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q61="http://schemas.datacontract.org/2004/07/HizliWebApp.Services" minOccurs="0" name="UpdateUserWsResult" nillable="true" type="q61:ResponseMessage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCodeList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q62="http://schemas.datacontract.org/2004/07/HizliWebApp.Services" minOccurs="0" name="type" type="q62:CodeListType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCodeListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q63="http://schemas.datacontract.org/2004/07/HizliWebApp.Services" minOccurs="0" name="GetCodeListResult" nillable="true" type="q63:CodeList" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDashboardInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Identifier" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDashboardInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q64="http://schemas.datacontract.org/2004/07/HizliWebApp.Services" minOccurs="0" name="GetDashboardInfoResult" nillable="true" type="q64:DashboardOutput" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PrefixCodeList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="PrefixType" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PrefixCodeListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q65="http://schemas.datacontract.org/2004/07/HizliWebApp.Services" minOccurs="0" name="PrefixCodeListResult" nillable="true" type="q65:PrefixCodeResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StockList">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StockListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q66="http://schemas.datacontract.org/2004/07/HizliWebApp.Services" minOccurs="0" name="StockListResult" nillable="true" type="q66:StockResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StockSave">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q67="http://schemas.datacontract.org/2004/07/HizliWebApp.Services" minOccurs="0" name="stock" nillable="true" type="q67:Stock" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StockSaveResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q68="http://schemas.datacontract.org/2004/07/HizliWebApp.Services" minOccurs="0" name="StockSaveResult" nillable="true" type="q68:StockOut" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StokDelete">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="stokId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StokDeleteResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q69="http://schemas.datacontract.org/2004/07/HizliWebApp.Services" minOccurs="0" name="StokDeleteResult" nillable="true" type="q69:ResponseMessage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RescindCancel">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="appType" type="xs:int" />
+        <xs:element minOccurs="0" name="UUID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RescindCancelResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q70="http://schemas.datacontract.org/2004/07/HizliWebApp.Models" minOccurs="0" name="RescindCancelResult" nillable="true" type="q70:ResponseMessage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Login">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q71="http://schemas.datacontract.org/2004/07/HizliWebApp.Services" minOccurs="0" name="input" nillable="true" type="q71:LoginInput" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoginResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q72="http://schemas.datacontract.org/2004/07/HizliWebApp.Services" minOccurs="0" name="LoginResult" nillable="true" type="q72:ArrayOfLoginOutput" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="XsltSave">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q73="http://schemas.datacontract.org/2004/07/HizliWebApp.Services" minOccurs="0" name="xsltInput" nillable="true" type="q73:Xslt" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="XsltSaveResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q74="http://schemas.datacontract.org/2004/07/HizliWebApp.Services" minOccurs="0" name="XsltSaveResult" nillable="true" type="q74:XsltOut" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="XsltDelete">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q75="http://schemas.datacontract.org/2004/07/HizliWebApp.Models.HbtMusteri" minOccurs="0" name="serviceType" type="q75:hizmetTuru" />
+        <xs:element minOccurs="0" name="xsltCode" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="XsltDeleteResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q76="http://schemas.datacontract.org/2004/07/HizliWebApp.Services" minOccurs="0" name="XsltDeleteResult" nillable="true" type="q76:ResponseMessage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="XsltList">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="XsltListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q77="http://schemas.datacontract.org/2004/07/HizliWebApp.Services" minOccurs="0" name="XsltListResult" nillable="true" type="q77:XsltListOut" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="XsltContent">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q78="http://schemas.datacontract.org/2004/07/HizliWebApp.Models.HbtMusteri" minOccurs="0" name="serviceType" type="q78:hizmetTuru" />
+        <xs:element minOccurs="0" name="xsltCode" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="XsltContentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q79="http://schemas.datacontract.org/2004/07/HizliWebApp.Services" minOccurs="0" name="XsltContentResult" nillable="true" type="q79:XsltContentOut" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConvertDespachsToInvoice">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q80="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="irsaliyeXmlList" nillable="true" type="q80:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConvertDespachsToInvoiceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q81="http://schemas.datacontract.org/2004/07/HizliWebApp.Services" minOccurs="0" name="ConvertDespachsToInvoiceResult" nillable="true" type="q81:ConvertDespachsToInvoiceOut" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReSendMail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q82="http://schemas.datacontract.org/2004/07/HizliWebApp.Services" minOccurs="0" name="reSendMailInput" nillable="true" type="q82:ReSendMailInput" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReSendMailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q83="http://schemas.datacontract.org/2004/07/HizliWebApp.Services" minOccurs="0" name="ReSendMailResult" nillable="true" type="q83:ResponseMessage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDocumentListLocalId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q84="http://schemas.datacontract.org/2004/07/HizliWebApp.Services" minOccurs="0" name="localIdList" nillable="true" type="q84:GetDocumentListLocalIdModel" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDocumentListLocalIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q85="http://schemas.datacontract.org/2004/07/HizliWebApp.Services" minOccurs="0" name="GetDocumentListLocalIdResult" nillable="true" type="q85:DocumentList" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RetryCustomerAliasEnvelope">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="aliasEnvelope_id" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RetryCustomerAliasEnvelopeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q86="http://schemas.datacontract.org/2004/07/HizliWebApp.Services" minOccurs="0" name="RetryCustomerAliasEnvelopeResult" nillable="true" type="q86:ResponseMessage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CustomerGibUserEnvelope">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CustomerGibUserEnvelopeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q87="http://schemas.datacontract.org/2004/07/HizliWebApp.Services" minOccurs="0" name="CustomerGibUserEnvelopeResult" nillable="true" type="q87:ArrayOfCustomerGibUserEnvelopeModel" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CariSave">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q88="http://schemas.datacontract.org/2004/07/HizliWebApp.Services" minOccurs="0" name="musteri" nillable="true" type="q88:Cari" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CariSaveResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q89="http://schemas.datacontract.org/2004/07/HizliWebApp.Services" minOccurs="0" name="CariSaveResult" nillable="true" type="q89:CariOut" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UtilEncrypt">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q90="http://schemas.datacontract.org/2004/07/HizliWebApp.Services" minOccurs="0" name="loginUtil" nillable="true" type="q90:LoginUtil" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UtilEncryptResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q91="http://schemas.datacontract.org/2004/07/HizliWebApp.Services" minOccurs="0" name="UtilEncryptResult" nillable="true" type="q91:LoginOut" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

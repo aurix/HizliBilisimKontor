@@ -1,0 +1,1139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="HizliService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="BasicHttpBinding_IHizliService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false" />
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="https://econnect.hizliteknoloji.com.tr/Services/HizliService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="https://econnect.hizliteknoloji.com.tr/Services/HizliService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="https://econnect.hizliteknoloji.com.tr/Services/HizliService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/HizliWebApp.Services" />
+      <xsd:import schemaLocation="https://econnect.hizliteknoloji.com.tr/Services/HizliService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="https://econnect.hizliteknoloji.com.tr/Services/HizliService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/HizliWebApp.Models.EArsiv" />
+      <xsd:import schemaLocation="https://econnect.hizliteknoloji.com.tr/Services/HizliService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/HizliWebApp.Models.InvoiceModels" />
+      <xsd:import schemaLocation="https://econnect.hizliteknoloji.com.tr/Services/HizliService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/HizliWebApp.Models.MustahsilModel" />
+      <xsd:import schemaLocation="https://econnect.hizliteknoloji.com.tr/Services/HizliService.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/HizliWebApp.Models.SmmModel" />
+      <xsd:import schemaLocation="https://econnect.hizliteknoloji.com.tr/Services/HizliService.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/HizliWebApp.Models.ECheck" />
+      <xsd:import schemaLocation="https://econnect.hizliteknoloji.com.tr/Services/HizliService.svc?xsd=xsd9" namespace="http://schemas.datacontract.org/2004/07/HizliWebApp.Models.IrsaliyeModel" />
+      <xsd:import schemaLocation="https://econnect.hizliteknoloji.com.tr/Services/HizliService.svc?xsd=xsd10" namespace="http://schemas.datacontract.org/2004/07/HizliWebApp.Models.HbtMusteri" />
+      <xsd:import schemaLocation="https://econnect.hizliteknoloji.com.tr/Services/HizliService.svc?xsd=xsd11" namespace="http://schemas.datacontract.org/2004/07/HizliWebApp.Models.Turmob" />
+      <xsd:import schemaLocation="https://econnect.hizliteknoloji.com.tr/Services/HizliService.svc?xsd=xsd12" namespace="http://schemas.datacontract.org/2004/07/HizliWebApp.Models" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IHizliService_SendDocument_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendDocument" />
+  </wsdl:message>
+  <wsdl:message name="IHizliService_SendDocument_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendDocumentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHizliService_ControlDocumentXML_InputMessage">
+    <wsdl:part name="parameters" element="tns:ControlDocumentXML" />
+  </wsdl:message>
+  <wsdl:message name="IHizliService_ControlDocumentXML_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ControlDocumentXMLResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHizliService_SendApplicationResponse_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendApplicationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHizliService_SendApplicationResponse_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendApplicationResponseResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHizliService_SendApplicationResponseXml_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendApplicationResponseXml" />
+  </wsdl:message>
+  <wsdl:message name="IHizliService_SendApplicationResponseXml_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendApplicationResponseXmlResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHizliService_GetDocumentList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDocumentList" />
+  </wsdl:message>
+  <wsdl:message name="IHizliService_GetDocumentList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDocumentListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHizliService_GetDocumentListGUID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDocumentListGUID" />
+  </wsdl:message>
+  <wsdl:message name="IHizliService_GetDocumentListGUID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDocumentListGUIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHizliService_SetTakenFromEntegrator_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetTakenFromEntegrator" />
+  </wsdl:message>
+  <wsdl:message name="IHizliService_SetTakenFromEntegrator_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetTakenFromEntegratorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHizliService_SetTakenFromEntegratorAlternative_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetTakenFromEntegratorAlternative" />
+  </wsdl:message>
+  <wsdl:message name="IHizliService_SetTakenFromEntegratorAlternative_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetTakenFromEntegratorAlternativeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHizliService_GetDocumentFile_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDocumentFile" />
+  </wsdl:message>
+  <wsdl:message name="IHizliService_GetDocumentFile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDocumentFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHizliService_SetDocumentFlag_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetDocumentFlag" />
+  </wsdl:message>
+  <wsdl:message name="IHizliService_SetDocumentFlag_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetDocumentFlagResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHizliService_CancelEArsivInvoice_InputMessage">
+    <wsdl:part name="parameters" element="tns:CancelEArsivInvoice" />
+  </wsdl:message>
+  <wsdl:message name="IHizliService_CancelEArsivInvoice_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CancelEArsivInvoiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHizliService_CancelDocument_InputMessage">
+    <wsdl:part name="parameters" element="tns:CancelDocument" />
+  </wsdl:message>
+  <wsdl:message name="IHizliService_CancelDocument_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CancelDocumentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHizliService_ObjectDocument_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObjectDocument" />
+  </wsdl:message>
+  <wsdl:message name="IHizliService_ObjectDocument_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObjectDocumentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHizliService_GetGibUserList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetGibUserList" />
+  </wsdl:message>
+  <wsdl:message name="IHizliService_GetGibUserList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetGibUserListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHizliService_GetGibUserAliasCreationTimeList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetGibUserAliasCreationTimeList" />
+  </wsdl:message>
+  <wsdl:message name="IHizliService_GetGibUserAliasCreationTimeList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetGibUserAliasCreationTimeListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHizliService_GetGibUserFile_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetGibUserFile" />
+  </wsdl:message>
+  <wsdl:message name="IHizliService_GetGibUserFile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetGibUserFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHizliService_GetGibUserAliasCreationTime_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetGibUserAliasCreationTime" />
+  </wsdl:message>
+  <wsdl:message name="IHizliService_GetGibUserAliasCreationTime_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetGibUserAliasCreationTimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHizliService_GetGibUserListUserXml_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetGibUserListUserXml" />
+  </wsdl:message>
+  <wsdl:message name="IHizliService_GetGibUserListUserXml_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetGibUserListUserXmlResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHizliService_SendInvoiceModel_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendInvoiceModel" />
+  </wsdl:message>
+  <wsdl:message name="IHizliService_SendInvoiceModel_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendInvoiceModelResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHizliService_SendCreditNoteModel_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendCreditNoteModel" />
+  </wsdl:message>
+  <wsdl:message name="IHizliService_SendCreditNoteModel_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendCreditNoteModelResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHizliService_SendReceiptModel_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendReceiptModel" />
+  </wsdl:message>
+  <wsdl:message name="IHizliService_SendReceiptModel_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendReceiptModelResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHizliService_SendCheckModel_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendCheckModel" />
+  </wsdl:message>
+  <wsdl:message name="IHizliService_SendCheckModel_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendCheckModelResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHizliService_SendDespatchAdviceModel_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendDespatchAdviceModel" />
+  </wsdl:message>
+  <wsdl:message name="IHizliService_SendDespatchAdviceModel_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendDespatchAdviceModelResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHizliService_GetLastInvoiceIdAndDate_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLastInvoiceIdAndDate" />
+  </wsdl:message>
+  <wsdl:message name="IHizliService_GetLastInvoiceIdAndDate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLastInvoiceIdAndDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHizliService_SetEmailSend_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetEmailSend" />
+  </wsdl:message>
+  <wsdl:message name="IHizliService_SetEmailSend_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetEmailSendResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHizliService_UploadDocumentTransfer_InputMessage">
+    <wsdl:part name="parameters" element="tns:UploadDocumentTransfer" />
+  </wsdl:message>
+  <wsdl:message name="IHizliService_UploadDocumentTransfer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UploadDocumentTransferResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHizliService_GetDocumentListTransfer_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDocumentListTransfer" />
+  </wsdl:message>
+  <wsdl:message name="IHizliService_GetDocumentListTransfer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDocumentListTransferResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHizliService_GetDocumentFileTransfer_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDocumentFileTransfer" />
+  </wsdl:message>
+  <wsdl:message name="IHizliService_GetDocumentFileTransfer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDocumentFileTransferResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHizliService_KalanKontorSorgula_InputMessage">
+    <wsdl:part name="parameters" element="tns:KalanKontorSorgula" />
+  </wsdl:message>
+  <wsdl:message name="IHizliService_KalanKontorSorgula_OutputMessage">
+    <wsdl:part name="parameters" element="tns:KalanKontorSorgulaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHizliService_KontorYukle_InputMessage">
+    <wsdl:part name="parameters" element="tns:KontorYukle" />
+  </wsdl:message>
+  <wsdl:message name="IHizliService_KontorYukle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:KontorYukleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHizliService_KontorHareketleriVknTckn_InputMessage">
+    <wsdl:part name="parameters" element="tns:KontorHareketleriVknTckn" />
+  </wsdl:message>
+  <wsdl:message name="IHizliService_KontorHareketleriVknTckn_OutputMessage">
+    <wsdl:part name="parameters" element="tns:KontorHareketleriVknTcknResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHizliService_KontorHareketleri_InputMessage">
+    <wsdl:part name="parameters" element="tns:KontorHareketleri" />
+  </wsdl:message>
+  <wsdl:message name="IHizliService_KontorHareketleri_OutputMessage">
+    <wsdl:part name="parameters" element="tns:KontorHareketleriResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHizliService_GetCustomerCreditCount_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustomerCreditCount" />
+  </wsdl:message>
+  <wsdl:message name="IHizliService_GetCustomerCreditCount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustomerCreditCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHizliService_MusteriOlustur_InputMessage">
+    <wsdl:part name="parameters" element="tns:MusteriOlustur" />
+  </wsdl:message>
+  <wsdl:message name="IHizliService_MusteriOlustur_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MusteriOlusturResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHizliService_MusteriGetir_InputMessage">
+    <wsdl:part name="parameters" element="tns:MusteriGetir" />
+  </wsdl:message>
+  <wsdl:message name="IHizliService_MusteriGetir_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MusteriGetirResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHizliService_MusteriAktifPasif_InputMessage">
+    <wsdl:part name="parameters" element="tns:MusteriAktifPasif" />
+  </wsdl:message>
+  <wsdl:message name="IHizliService_MusteriAktifPasif_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MusteriAktifPasifResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHizliService_MukellefBilgisiSorgulama_InputMessage">
+    <wsdl:part name="parameters" element="tns:MukellefBilgisiSorgulama" />
+  </wsdl:message>
+  <wsdl:message name="IHizliService_MukellefBilgisiSorgulama_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MukellefBilgisiSorgulamaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHizliService_UpdateUserWs_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUserWs" />
+  </wsdl:message>
+  <wsdl:message name="IHizliService_UpdateUserWs_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUserWsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHizliService_GetCodeList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCodeList" />
+  </wsdl:message>
+  <wsdl:message name="IHizliService_GetCodeList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCodeListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHizliService_GetDashboardInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDashboardInfo" />
+  </wsdl:message>
+  <wsdl:message name="IHizliService_GetDashboardInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDashboardInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHizliService_PrefixCodeList_InputMessage">
+    <wsdl:part name="parameters" element="tns:PrefixCodeList" />
+  </wsdl:message>
+  <wsdl:message name="IHizliService_PrefixCodeList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PrefixCodeListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHizliService_StockList_InputMessage">
+    <wsdl:part name="parameters" element="tns:StockList" />
+  </wsdl:message>
+  <wsdl:message name="IHizliService_StockList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StockListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHizliService_StockSave_InputMessage">
+    <wsdl:part name="parameters" element="tns:StockSave" />
+  </wsdl:message>
+  <wsdl:message name="IHizliService_StockSave_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StockSaveResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHizliService_StokDelete_InputMessage">
+    <wsdl:part name="parameters" element="tns:StokDelete" />
+  </wsdl:message>
+  <wsdl:message name="IHizliService_StokDelete_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StokDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHizliService_RescindCancel_InputMessage">
+    <wsdl:part name="parameters" element="tns:RescindCancel" />
+  </wsdl:message>
+  <wsdl:message name="IHizliService_RescindCancel_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RescindCancelResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHizliService_Login_InputMessage">
+    <wsdl:part name="parameters" element="tns:Login" />
+  </wsdl:message>
+  <wsdl:message name="IHizliService_Login_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHizliService_XsltSave_InputMessage">
+    <wsdl:part name="parameters" element="tns:XsltSave" />
+  </wsdl:message>
+  <wsdl:message name="IHizliService_XsltSave_OutputMessage">
+    <wsdl:part name="parameters" element="tns:XsltSaveResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHizliService_XsltDelete_InputMessage">
+    <wsdl:part name="parameters" element="tns:XsltDelete" />
+  </wsdl:message>
+  <wsdl:message name="IHizliService_XsltDelete_OutputMessage">
+    <wsdl:part name="parameters" element="tns:XsltDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHizliService_XsltList_InputMessage">
+    <wsdl:part name="parameters" element="tns:XsltList" />
+  </wsdl:message>
+  <wsdl:message name="IHizliService_XsltList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:XsltListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHizliService_XsltContent_InputMessage">
+    <wsdl:part name="parameters" element="tns:XsltContent" />
+  </wsdl:message>
+  <wsdl:message name="IHizliService_XsltContent_OutputMessage">
+    <wsdl:part name="parameters" element="tns:XsltContentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHizliService_ConvertDespachsToInvoice_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConvertDespachsToInvoice" />
+  </wsdl:message>
+  <wsdl:message name="IHizliService_ConvertDespachsToInvoice_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConvertDespachsToInvoiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHizliService_ReSendMail_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReSendMail" />
+  </wsdl:message>
+  <wsdl:message name="IHizliService_ReSendMail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReSendMailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHizliService_GetDocumentListLocalId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDocumentListLocalId" />
+  </wsdl:message>
+  <wsdl:message name="IHizliService_GetDocumentListLocalId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDocumentListLocalIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHizliService_RetryCustomerAliasEnvelope_InputMessage">
+    <wsdl:part name="parameters" element="tns:RetryCustomerAliasEnvelope" />
+  </wsdl:message>
+  <wsdl:message name="IHizliService_RetryCustomerAliasEnvelope_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RetryCustomerAliasEnvelopeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHizliService_CustomerGibUserEnvelope_InputMessage">
+    <wsdl:part name="parameters" element="tns:CustomerGibUserEnvelope" />
+  </wsdl:message>
+  <wsdl:message name="IHizliService_CustomerGibUserEnvelope_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CustomerGibUserEnvelopeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHizliService_CariSave_InputMessage">
+    <wsdl:part name="parameters" element="tns:CariSave" />
+  </wsdl:message>
+  <wsdl:message name="IHizliService_CariSave_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CariSaveResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHizliService_UtilEncrypt_InputMessage">
+    <wsdl:part name="parameters" element="tns:UtilEncrypt" />
+  </wsdl:message>
+  <wsdl:message name="IHizliService_UtilEncrypt_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UtilEncryptResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IHizliService">
+    <wsdl:operation name="SendDocument">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHizliService/SendDocument" message="tns:IHizliService_SendDocument_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHizliService/SendDocumentResponse" message="tns:IHizliService_SendDocument_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ControlDocumentXML">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHizliService/ControlDocumentXML" message="tns:IHizliService_ControlDocumentXML_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHizliService/ControlDocumentXMLResponse" message="tns:IHizliService_ControlDocumentXML_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendApplicationResponse">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHizliService/SendApplicationResponse" message="tns:IHizliService_SendApplicationResponse_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHizliService/SendApplicationResponseResponse" message="tns:IHizliService_SendApplicationResponse_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendApplicationResponseXml">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHizliService/SendApplicationResponseXml" message="tns:IHizliService_SendApplicationResponseXml_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHizliService/SendApplicationResponseXmlResponse" message="tns:IHizliService_SendApplicationResponseXml_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHizliService/GetDocumentList" message="tns:IHizliService_GetDocumentList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHizliService/GetDocumentListResponse" message="tns:IHizliService_GetDocumentList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentListGUID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHizliService/GetDocumentListGUID" message="tns:IHizliService_GetDocumentListGUID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHizliService/GetDocumentListGUIDResponse" message="tns:IHizliService_GetDocumentListGUID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetTakenFromEntegrator">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHizliService/SetTakenFromEntegrator" message="tns:IHizliService_SetTakenFromEntegrator_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHizliService/SetTakenFromEntegratorResponse" message="tns:IHizliService_SetTakenFromEntegrator_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetTakenFromEntegratorAlternative">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHizliService/SetTakenFromEntegratorAlternative" message="tns:IHizliService_SetTakenFromEntegratorAlternative_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHizliService/SetTakenFromEntegratorAlternativeResponse" message="tns:IHizliService_SetTakenFromEntegratorAlternative_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentFile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHizliService/GetDocumentFile" message="tns:IHizliService_GetDocumentFile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHizliService/GetDocumentFileResponse" message="tns:IHizliService_GetDocumentFile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetDocumentFlag">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHizliService/SetDocumentFlag" message="tns:IHizliService_SetDocumentFlag_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHizliService/SetDocumentFlagResponse" message="tns:IHizliService_SetDocumentFlag_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CancelEArsivInvoice">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHizliService/CancelEArsivInvoice" message="tns:IHizliService_CancelEArsivInvoice_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHizliService/CancelEArsivInvoiceResponse" message="tns:IHizliService_CancelEArsivInvoice_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CancelDocument">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHizliService/CancelDocument" message="tns:IHizliService_CancelDocument_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHizliService/CancelDocumentResponse" message="tns:IHizliService_CancelDocument_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObjectDocument">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHizliService/ObjectDocument" message="tns:IHizliService_ObjectDocument_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHizliService/ObjectDocumentResponse" message="tns:IHizliService_ObjectDocument_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGibUserList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHizliService/GetGibUserList" message="tns:IHizliService_GetGibUserList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHizliService/GetGibUserListResponse" message="tns:IHizliService_GetGibUserList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGibUserAliasCreationTimeList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHizliService/GetGibUserAliasCreationTimeList" message="tns:IHizliService_GetGibUserAliasCreationTimeList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHizliService/GetGibUserAliasCreationTimeListResponse" message="tns:IHizliService_GetGibUserAliasCreationTimeList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGibUserFile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHizliService/GetGibUserFile" message="tns:IHizliService_GetGibUserFile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHizliService/GetGibUserFileResponse" message="tns:IHizliService_GetGibUserFile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGibUserAliasCreationTime">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHizliService/GetGibUserAliasCreationTime" message="tns:IHizliService_GetGibUserAliasCreationTime_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHizliService/GetGibUserAliasCreationTimeResponse" message="tns:IHizliService_GetGibUserAliasCreationTime_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGibUserListUserXml">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHizliService/GetGibUserListUserXml" message="tns:IHizliService_GetGibUserListUserXml_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHizliService/GetGibUserListUserXmlResponse" message="tns:IHizliService_GetGibUserListUserXml_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendInvoiceModel">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHizliService/SendInvoiceModel" message="tns:IHizliService_SendInvoiceModel_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHizliService/SendInvoiceModelResponse" message="tns:IHizliService_SendInvoiceModel_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendCreditNoteModel">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHizliService/SendCreditNoteModel" message="tns:IHizliService_SendCreditNoteModel_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHizliService/SendCreditNoteModelResponse" message="tns:IHizliService_SendCreditNoteModel_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendReceiptModel">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHizliService/SendReceiptModel" message="tns:IHizliService_SendReceiptModel_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHizliService/SendReceiptModelResponse" message="tns:IHizliService_SendReceiptModel_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendCheckModel">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHizliService/SendCheckModel" message="tns:IHizliService_SendCheckModel_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHizliService/SendCheckModelResponse" message="tns:IHizliService_SendCheckModel_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendDespatchAdviceModel">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHizliService/SendDespatchAdviceModel" message="tns:IHizliService_SendDespatchAdviceModel_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHizliService/SendDespatchAdviceModelResponse" message="tns:IHizliService_SendDespatchAdviceModel_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLastInvoiceIdAndDate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHizliService/GetLastInvoiceIdAndDate" message="tns:IHizliService_GetLastInvoiceIdAndDate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHizliService/GetLastInvoiceIdAndDateResponse" message="tns:IHizliService_GetLastInvoiceIdAndDate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetEmailSend">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHizliService/SetEmailSend" message="tns:IHizliService_SetEmailSend_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHizliService/SetEmailSendResponse" message="tns:IHizliService_SetEmailSend_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UploadDocumentTransfer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHizliService/UploadDocumentTransfer" message="tns:IHizliService_UploadDocumentTransfer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHizliService/UploadDocumentTransferResponse" message="tns:IHizliService_UploadDocumentTransfer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentListTransfer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHizliService/GetDocumentListTransfer" message="tns:IHizliService_GetDocumentListTransfer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHizliService/GetDocumentListTransferResponse" message="tns:IHizliService_GetDocumentListTransfer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentFileTransfer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHizliService/GetDocumentFileTransfer" message="tns:IHizliService_GetDocumentFileTransfer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHizliService/GetDocumentFileTransferResponse" message="tns:IHizliService_GetDocumentFileTransfer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="KalanKontorSorgula">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHizliService/KalanKontorSorgula" message="tns:IHizliService_KalanKontorSorgula_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHizliService/KalanKontorSorgulaResponse" message="tns:IHizliService_KalanKontorSorgula_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="KontorYukle">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHizliService/KontorYukle" message="tns:IHizliService_KontorYukle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHizliService/KontorYukleResponse" message="tns:IHizliService_KontorYukle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="KontorHareketleriVknTckn">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHizliService/KontorHareketleriVknTckn" message="tns:IHizliService_KontorHareketleriVknTckn_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHizliService/KontorHareketleriVknTcknResponse" message="tns:IHizliService_KontorHareketleriVknTckn_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="KontorHareketleri">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHizliService/KontorHareketleri" message="tns:IHizliService_KontorHareketleri_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHizliService/KontorHareketleriResponse" message="tns:IHizliService_KontorHareketleri_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerCreditCount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHizliService/GetCustomerCreditCount" message="tns:IHizliService_GetCustomerCreditCount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHizliService/GetCustomerCreditCountResponse" message="tns:IHizliService_GetCustomerCreditCount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MusteriOlustur">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHizliService/MusteriOlustur" message="tns:IHizliService_MusteriOlustur_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHizliService/MusteriOlusturResponse" message="tns:IHizliService_MusteriOlustur_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MusteriGetir">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHizliService/MusteriGetir" message="tns:IHizliService_MusteriGetir_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHizliService/MusteriGetirResponse" message="tns:IHizliService_MusteriGetir_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MusteriAktifPasif">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHizliService/MusteriAktifPasif" message="tns:IHizliService_MusteriAktifPasif_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHizliService/MusteriAktifPasifResponse" message="tns:IHizliService_MusteriAktifPasif_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MukellefBilgisiSorgulama">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHizliService/MukellefBilgisiSorgulama" message="tns:IHizliService_MukellefBilgisiSorgulama_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHizliService/MukellefBilgisiSorgulamaResponse" message="tns:IHizliService_MukellefBilgisiSorgulama_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserWs">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHizliService/UpdateUserWs" message="tns:IHizliService_UpdateUserWs_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHizliService/UpdateUserWsResponse" message="tns:IHizliService_UpdateUserWs_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCodeList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHizliService/GetCodeList" message="tns:IHizliService_GetCodeList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHizliService/GetCodeListResponse" message="tns:IHizliService_GetCodeList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDashboardInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHizliService/GetDashboardInfo" message="tns:IHizliService_GetDashboardInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHizliService/GetDashboardInfoResponse" message="tns:IHizliService_GetDashboardInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PrefixCodeList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHizliService/PrefixCodeList" message="tns:IHizliService_PrefixCodeList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHizliService/PrefixCodeListResponse" message="tns:IHizliService_PrefixCodeList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StockList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHizliService/StockList" message="tns:IHizliService_StockList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHizliService/StockListResponse" message="tns:IHizliService_StockList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StockSave">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHizliService/StockSave" message="tns:IHizliService_StockSave_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHizliService/StockSaveResponse" message="tns:IHizliService_StockSave_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StokDelete">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHizliService/StokDelete" message="tns:IHizliService_StokDelete_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHizliService/StokDeleteResponse" message="tns:IHizliService_StokDelete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RescindCancel">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHizliService/RescindCancel" message="tns:IHizliService_RescindCancel_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHizliService/RescindCancelResponse" message="tns:IHizliService_RescindCancel_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHizliService/Login" message="tns:IHizliService_Login_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHizliService/LoginResponse" message="tns:IHizliService_Login_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="XsltSave">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHizliService/XsltSave" message="tns:IHizliService_XsltSave_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHizliService/XsltSaveResponse" message="tns:IHizliService_XsltSave_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="XsltDelete">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHizliService/XsltDelete" message="tns:IHizliService_XsltDelete_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHizliService/XsltDeleteResponse" message="tns:IHizliService_XsltDelete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="XsltList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHizliService/XsltList" message="tns:IHizliService_XsltList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHizliService/XsltListResponse" message="tns:IHizliService_XsltList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="XsltContent">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHizliService/XsltContent" message="tns:IHizliService_XsltContent_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHizliService/XsltContentResponse" message="tns:IHizliService_XsltContent_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConvertDespachsToInvoice">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHizliService/ConvertDespachsToInvoice" message="tns:IHizliService_ConvertDespachsToInvoice_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHizliService/ConvertDespachsToInvoiceResponse" message="tns:IHizliService_ConvertDespachsToInvoice_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReSendMail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHizliService/ReSendMail" message="tns:IHizliService_ReSendMail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHizliService/ReSendMailResponse" message="tns:IHizliService_ReSendMail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentListLocalId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHizliService/GetDocumentListLocalId" message="tns:IHizliService_GetDocumentListLocalId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHizliService/GetDocumentListLocalIdResponse" message="tns:IHizliService_GetDocumentListLocalId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RetryCustomerAliasEnvelope">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHizliService/RetryCustomerAliasEnvelope" message="tns:IHizliService_RetryCustomerAliasEnvelope_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHizliService/RetryCustomerAliasEnvelopeResponse" message="tns:IHizliService_RetryCustomerAliasEnvelope_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CustomerGibUserEnvelope">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHizliService/CustomerGibUserEnvelope" message="tns:IHizliService_CustomerGibUserEnvelope_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHizliService/CustomerGibUserEnvelopeResponse" message="tns:IHizliService_CustomerGibUserEnvelope_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CariSave">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHizliService/CariSave" message="tns:IHizliService_CariSave_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHizliService/CariSaveResponse" message="tns:IHizliService_CariSave_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UtilEncrypt">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHizliService/UtilEncrypt" message="tns:IHizliService_UtilEncrypt_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHizliService/UtilEncryptResponse" message="tns:IHizliService_UtilEncrypt_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IHizliService" type="tns:IHizliService">
+    <wsp:PolicyReference URI="#BasicHttpBinding_IHizliService_policy" />
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SendDocument">
+      <soap:operation soapAction="http://tempuri.org/IHizliService/SendDocument" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ControlDocumentXML">
+      <soap:operation soapAction="http://tempuri.org/IHizliService/ControlDocumentXML" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendApplicationResponse">
+      <soap:operation soapAction="http://tempuri.org/IHizliService/SendApplicationResponse" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendApplicationResponseXml">
+      <soap:operation soapAction="http://tempuri.org/IHizliService/SendApplicationResponseXml" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentList">
+      <soap:operation soapAction="http://tempuri.org/IHizliService/GetDocumentList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentListGUID">
+      <soap:operation soapAction="http://tempuri.org/IHizliService/GetDocumentListGUID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetTakenFromEntegrator">
+      <soap:operation soapAction="http://tempuri.org/IHizliService/SetTakenFromEntegrator" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetTakenFromEntegratorAlternative">
+      <soap:operation soapAction="http://tempuri.org/IHizliService/SetTakenFromEntegratorAlternative" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentFile">
+      <soap:operation soapAction="http://tempuri.org/IHizliService/GetDocumentFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetDocumentFlag">
+      <soap:operation soapAction="http://tempuri.org/IHizliService/SetDocumentFlag" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelEArsivInvoice">
+      <soap:operation soapAction="http://tempuri.org/IHizliService/CancelEArsivInvoice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelDocument">
+      <soap:operation soapAction="http://tempuri.org/IHizliService/CancelDocument" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObjectDocument">
+      <soap:operation soapAction="http://tempuri.org/IHizliService/ObjectDocument" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGibUserList">
+      <soap:operation soapAction="http://tempuri.org/IHizliService/GetGibUserList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGibUserAliasCreationTimeList">
+      <soap:operation soapAction="http://tempuri.org/IHizliService/GetGibUserAliasCreationTimeList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGibUserFile">
+      <soap:operation soapAction="http://tempuri.org/IHizliService/GetGibUserFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGibUserAliasCreationTime">
+      <soap:operation soapAction="http://tempuri.org/IHizliService/GetGibUserAliasCreationTime" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGibUserListUserXml">
+      <soap:operation soapAction="http://tempuri.org/IHizliService/GetGibUserListUserXml" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendInvoiceModel">
+      <soap:operation soapAction="http://tempuri.org/IHizliService/SendInvoiceModel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendCreditNoteModel">
+      <soap:operation soapAction="http://tempuri.org/IHizliService/SendCreditNoteModel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendReceiptModel">
+      <soap:operation soapAction="http://tempuri.org/IHizliService/SendReceiptModel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendCheckModel">
+      <soap:operation soapAction="http://tempuri.org/IHizliService/SendCheckModel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendDespatchAdviceModel">
+      <soap:operation soapAction="http://tempuri.org/IHizliService/SendDespatchAdviceModel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLastInvoiceIdAndDate">
+      <soap:operation soapAction="http://tempuri.org/IHizliService/GetLastInvoiceIdAndDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetEmailSend">
+      <soap:operation soapAction="http://tempuri.org/IHizliService/SetEmailSend" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadDocumentTransfer">
+      <soap:operation soapAction="http://tempuri.org/IHizliService/UploadDocumentTransfer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentListTransfer">
+      <soap:operation soapAction="http://tempuri.org/IHizliService/GetDocumentListTransfer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentFileTransfer">
+      <soap:operation soapAction="http://tempuri.org/IHizliService/GetDocumentFileTransfer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KalanKontorSorgula">
+      <soap:operation soapAction="http://tempuri.org/IHizliService/KalanKontorSorgula" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KontorYukle">
+      <soap:operation soapAction="http://tempuri.org/IHizliService/KontorYukle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KontorHareketleriVknTckn">
+      <soap:operation soapAction="http://tempuri.org/IHizliService/KontorHareketleriVknTckn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KontorHareketleri">
+      <soap:operation soapAction="http://tempuri.org/IHizliService/KontorHareketleri" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerCreditCount">
+      <soap:operation soapAction="http://tempuri.org/IHizliService/GetCustomerCreditCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MusteriOlustur">
+      <soap:operation soapAction="http://tempuri.org/IHizliService/MusteriOlustur" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MusteriGetir">
+      <soap:operation soapAction="http://tempuri.org/IHizliService/MusteriGetir" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MusteriAktifPasif">
+      <soap:operation soapAction="http://tempuri.org/IHizliService/MusteriAktifPasif" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MukellefBilgisiSorgulama">
+      <soap:operation soapAction="http://tempuri.org/IHizliService/MukellefBilgisiSorgulama" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserWs">
+      <soap:operation soapAction="http://tempuri.org/IHizliService/UpdateUserWs" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCodeList">
+      <soap:operation soapAction="http://tempuri.org/IHizliService/GetCodeList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDashboardInfo">
+      <soap:operation soapAction="http://tempuri.org/IHizliService/GetDashboardInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PrefixCodeList">
+      <soap:operation soapAction="http://tempuri.org/IHizliService/PrefixCodeList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StockList">
+      <soap:operation soapAction="http://tempuri.org/IHizliService/StockList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StockSave">
+      <soap:operation soapAction="http://tempuri.org/IHizliService/StockSave" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StokDelete">
+      <soap:operation soapAction="http://tempuri.org/IHizliService/StokDelete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RescindCancel">
+      <soap:operation soapAction="http://tempuri.org/IHizliService/RescindCancel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <soap:operation soapAction="http://tempuri.org/IHizliService/Login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="XsltSave">
+      <soap:operation soapAction="http://tempuri.org/IHizliService/XsltSave" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="XsltDelete">
+      <soap:operation soapAction="http://tempuri.org/IHizliService/XsltDelete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="XsltList">
+      <soap:operation soapAction="http://tempuri.org/IHizliService/XsltList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="XsltContent">
+      <soap:operation soapAction="http://tempuri.org/IHizliService/XsltContent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConvertDespachsToInvoice">
+      <soap:operation soapAction="http://tempuri.org/IHizliService/ConvertDespachsToInvoice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReSendMail">
+      <soap:operation soapAction="http://tempuri.org/IHizliService/ReSendMail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentListLocalId">
+      <soap:operation soapAction="http://tempuri.org/IHizliService/GetDocumentListLocalId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetryCustomerAliasEnvelope">
+      <soap:operation soapAction="http://tempuri.org/IHizliService/RetryCustomerAliasEnvelope" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CustomerGibUserEnvelope">
+      <soap:operation soapAction="http://tempuri.org/IHizliService/CustomerGibUserEnvelope" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CariSave">
+      <soap:operation soapAction="http://tempuri.org/IHizliService/CariSave" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UtilEncrypt">
+      <soap:operation soapAction="http://tempuri.org/IHizliService/UtilEncrypt" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="HizliService">
+    <wsdl:port name="BasicHttpBinding_IHizliService" binding="tns:BasicHttpBinding_IHizliService">
+      <soap:address location="https://econnect.hizliteknoloji.com.tr/Services/HizliService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

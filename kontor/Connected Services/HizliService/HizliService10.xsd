@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/HizliWebApp.Models.Turmob" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/HizliWebApp.Models.Turmob" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://econnect.hizliteknoloji.com.tr/Services/HizliService.svc?xsd=xsd12" namespace="http://schemas.datacontract.org/2004/07/HizliWebApp.Models" />
+  <xs:complexType name="MukellefBilgisi">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="meslekMensubuKey" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="vknTckn" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MukellefBilgisi" nillable="true" type="tns:MukellefBilgisi" />
+  <xs:complexType name="MukellefOutput">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/HizliWebApp.Models" base="q1:ResponseMessage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="mukellef" nillable="true" type="tns:MukellefModel" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MukellefOutput" nillable="true" type="tns:MukellefOutput" />
+  <xs:complexType name="MukellefModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ad" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="adresBilgileri" nillable="true" type="tns:ArrayOfAdresBilgileri" />
+      <xs:element minOccurs="0" name="babaAdi" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="dogumYeri" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="durum" nillable="true" type="tns:Durum" />
+      <xs:element minOccurs="0" name="faalTerkDurumu" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="iseBaslamaTarihi" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="isiBirakmaTarihi" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="kimlikPotansiyel" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="kimlikUnvani" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="kurulusTarihi" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="nACEFaaliyetKoduveTanimi" nillable="true" type="tns:ArrayOfNACEFaaliyetKoduveTanimi" />
+      <xs:element minOccurs="0" name="sirketinTuru" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="soyad" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="tamDarMukellefiyet" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="tckn" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="unvan" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="vergiDairesiAdi" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="vergiDairesiKodu" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="vkn" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MukellefModel" nillable="true" type="tns:MukellefModel" />
+  <xs:complexType name="ArrayOfAdresBilgileri">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AdresBilgileri" nillable="true" type="tns:AdresBilgileri" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAdresBilgileri" nillable="true" type="tns:ArrayOfAdresBilgileri" />
+  <xs:complexType name="AdresBilgileri">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="adresTipi" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="adresTipiAciklamasi" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="beldeBucak" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="caddeSokak" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="disKapiNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="icKapiNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ilAdi" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ilKodu" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ilceAdi" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ilceKodu" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="koy" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="mahalleSemt" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AdresBilgileri" nillable="true" type="tns:AdresBilgileri" />
+  <xs:complexType name="Durum">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="durumKodAciklamasi" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="durumKodu" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="hataDetayBilgisi" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="sonuc" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Durum" nillable="true" type="tns:Durum" />
+  <xs:complexType name="ArrayOfNACEFaaliyetKoduveTanimi">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="NACEFaaliyetKoduveTanimi" nillable="true" type="tns:NACEFaaliyetKoduveTanimi" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfNACEFaaliyetKoduveTanimi" nillable="true" type="tns:ArrayOfNACEFaaliyetKoduveTanimi" />
+  <xs:complexType name="NACEFaaliyetKoduveTanimi">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="faaliyetAdi" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="faaliyetKodu" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="sira" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="NACEFaaliyetKoduveTanimi" nillable="true" type="tns:NACEFaaliyetKoduveTanimi" />
+</xs:schema>
