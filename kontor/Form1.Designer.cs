@@ -48,6 +48,7 @@ namespace kontor
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.kayitsayilbl = new System.Windows.Forms.Label();
             this.firmaisimtxt = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -349,11 +350,24 @@ namespace kontor
             this.firmaisimtxt.Text = "Firma Adı:";
             this.firmaisimtxt.Visible = false;
             // 
+            // label3
+            // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label3.BackColor = System.Drawing.Color.SpringGreen;
+            this.label3.Location = new System.Drawing.Point(706, 101);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(67, 24);
+            this.label3.TabIndex = 46;
+            this.label3.Text = "Token Alındı";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label3.Visible = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(785, 129);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.firmaisimtxt);
             this.Controls.Add(this.kayitsayilbl);
             this.Controls.Add(this.dataGridView1);
@@ -401,6 +415,7 @@ namespace kontor
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label kayitsayilbl;
         private System.Windows.Forms.Label firmaisimtxt;
+        private System.Windows.Forms.Label label3;
     }
 }
 

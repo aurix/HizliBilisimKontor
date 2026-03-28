@@ -1,15 +1,9 @@
 ﻿using kontor.HizliService;
-using MySqlConnector;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.Net;
 using System.ServiceModel;
 using System.ServiceModel.Channels;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -24,12 +18,16 @@ namespace kontor
             kayitsayilbl.Visible = false;
         }
 
-        MySqlConnection baglanti = new MySqlConnection("Server='46.2.245.103';Port=3306;Database='kontor';Uid='satis';Pwd='!1919+';SSL Mode = None;convert zero datetime=True");
 
         public string username = "";
         public string password = "";
+        public static string apikey = "";
+        public static string secret = "";
         string firmaadi = "BULUNAMADI";
-        private void kontoryuklebtn_Click(object sender, EventArgs e)
+        string hashliuser = "";
+        string hashlipass = "";
+        string token = "";
+        private async void kontoryuklebtn_Click(object sender, EventArgs e)
         {
             kayitsayilbl.Visible = false;
             kayitsayilbl.Refresh();
@@ -38,24 +36,35 @@ namespace kontor
             this.Size = new Size(801, 168);
             dataGridView1.Rows.Clear();
             dataGridView1.Columns.Clear();
+            if (tokenAlindi == false)
+            {
+                await tokenAl();
+            }
             try
             {
                 HizliServiceClient hizliServiceClient3 = new HizliServiceClient();
                 using (new OperationContextScope(hizliServiceClient3.InnerChannel))
                 {
-                    HttpRequestMessageProperty httpRequestMessageProperty = new HttpRequestMessageProperty();
-                    httpRequestMessageProperty.Headers.Add("username", username);
-                    httpRequestMessageProperty.Headers.Add("password", password);
-                    OperationContext current = OperationContext.Current;
-                    current.OutgoingMessageProperties[HttpRequestMessageProperty.Name] = httpRequestMessageProperty;
-                    musteriOutput loginResponse = hizliServiceClient3.MusteriGetir(vnotxt.Text);
-                    if (loginResponse.hata == false)
+                    var prop = new HttpRequestMessageProperty();
+                    prop.Headers.Add("Authorization", "Bearer " + token);
+                    OperationContext context = OperationContext.Current;
+                    context.OutgoingMessageProperties[HttpRequestMessageProperty.Name] = prop;
+                    musteriOutput musterigetir = await hizliServiceClient3.MusteriGetirAsync(vnotxt.Text.Trim());
+                    if (musterigetir.hata == false)
                     {
-                        firmaadi = loginResponse.musteri.unvan.Trim().Length > 30 ? loginResponse.musteri.unvan.Substring(0, 20).Trim() + "..." : loginResponse.musteri.unvan.Trim();
-                        firmaisimtxt.Text = "Firma Adı: " + loginResponse.musteri.unvan;
+                        firmaadi = musterigetir.musteri.unvan.Trim().Length > 30 ? musterigetir.musteri.unvan.Substring(0, 20).Trim() + "..." : musterigetir.musteri.unvan.Trim();
+                        firmaisimtxt.Text = "Firma Adı: " + musterigetir.musteri.unvan;
                         firmaisimtxt.Visible = true;
                         firmaisimtxt.Refresh();
                     }
+                    //else
+                    //{
+                    //    foreach (var item in musterigetir.hataMesaji)
+                    //    {
+                    //        MessageBox.Show(item);
+                    //    }
+                    //}
+
                 }
             }
             catch
@@ -63,7 +72,7 @@ namespace kontor
                 DialogResult dr2 = MessageBox.Show($"{vnotxt.Text} nolu vergi numarası geçersiz olabilir, yükleme işlemine devam etmek istediğinize emin misiniz?", "UYARI", MessageBoxButtons.YesNo);
                 if (dr2 == DialogResult.Yes)
                 {
-                    kontoryukle();
+                    await kontoryukle();
                     return;
                 }
                 else if (dr2 == DialogResult.No)
@@ -71,10 +80,10 @@ namespace kontor
                     return;
                 }
             }
-            kontoryukle();
+            await kontoryukle();
         }
 
-        private void kontoryukle()
+        private async Task kontoryukle()
         {
             DialogResult dr;
             if (firmaadi == "BULUNAMADI")
@@ -93,18 +102,18 @@ namespace kontor
                 dataGridView1.Columns.Add("KullanimBaslangicTarihi", "Kullanım Başlangıç Tarihi");
                 dataGridView1.Columns.Add("BirimTuru", "Birim Türü");
                 dataGridView1.Columns.Add("IslemTuru", "İşlem Türü");
+                dataGridView1.Columns.Add("Aciklama", "Açıklama");
                 dataGridView1.Columns.Add("KontorId", "KontorId");
                 HizliServiceClient hizliServiceClient = new HizliServiceClient();
                 using (new OperationContextScope(hizliServiceClient.InnerChannel))
                 {
-                    HttpRequestMessageProperty httpRequestMessageProperty = new HttpRequestMessageProperty();
-                    httpRequestMessageProperty.Headers.Add("username", username);
-                    httpRequestMessageProperty.Headers.Add("password", password);
-                    OperationContext current = OperationContext.Current;
-                    current.OutgoingMessageProperties[HttpRequestMessageProperty.Name] = httpRequestMessageProperty;
+                    var prop = new HttpRequestMessageProperty();
+                    prop.Headers.Add("Authorization", "Bearer " + token);
+                    OperationContext context = OperationContext.Current;
+                    context.OutgoingMessageProperties[HttpRequestMessageProperty.Name] = prop;
                     KontorYukleModel modal = new KontorYukleModel()
                     {
-                        vkn_tckn = vnotxt.Text,
+                        vkn_tckn = vnotxt.Text.Trim(),
                         birimTuru = 0,
                         islemTuru = 0,
                         krediTuru = new KrediTuru()
@@ -112,12 +121,13 @@ namespace kontor
                             baslangicTarihi = DateTime.Now.ToString("dd-MM-yyyy"),
                             odemeTuru = OdemeTuru.Pesin,
                             birimFiyat = 0.1m,
-                            birimMiktari = Convert.ToInt32(kontorsayitxt.Text),
+                            birimMiktari = Convert.ToInt32(kontorsayitxt.Text.Trim()),
                             faturaNo = null,
-                            taksitSayisi = 0
+                            taksitSayisi = 0,
+                            aciklama = DateTime.Now.ToString("dd-MM-yyyy") + $" tarihinde yetkili tarafından yüklenmiştir."
                         }
                     };
-                    ResponseMessage response = hizliServiceClient.KontorYukle(modal);
+                    ResponseMessage response = await hizliServiceClient.KontorYukleAsync(modal);
                     if (response.IsSucceeded)
                     {
                         this.Size = new Size(801, 752);
@@ -125,11 +135,10 @@ namespace kontor
                         HizliServiceClient hizliServiceClient2 = new HizliServiceClient();
                         using (new OperationContextScope(hizliServiceClient2.InnerChannel))
                         {
-                            HttpRequestMessageProperty httpRequestMessageProperty2 = new HttpRequestMessageProperty();
-                            httpRequestMessageProperty2.Headers.Add("username", username);
-                            httpRequestMessageProperty2.Headers.Add("password", password);
-                            OperationContext current2 = OperationContext.Current;
-                            current2.OutgoingMessageProperties[HttpRequestMessageProperty.Name] = httpRequestMessageProperty2;
+                            var prop2 = new HttpRequestMessageProperty();
+                            prop2.Headers.Add("Authorization", "Bearer " + token);
+                            OperationContext context2 = OperationContext.Current;
+                            context2.OutgoingMessageProperties[HttpRequestMessageProperty.Name] = prop2;
                             KrediRaporOutput response2 = hizliServiceClient2.KontorHareketleriVknTckn(vnotxt.Text);
                             if (response2.IsSucceeded)
                             {
@@ -142,6 +151,7 @@ namespace kontor
                                         krediRapor.KullanimBaslangicTarihi,
                                         krediRapor.BirimTuru,
                                         krediRapor.IslemTuru,
+                                        krediRapor.Aciklama,
                                         krediRapor.KontorId
                                     );
                                 }
@@ -207,51 +217,57 @@ namespace kontor
             }
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private async Task tokenAl()
         {
-            olus();
-            if (kullanici == "BİLİNMEYEN KULLANICI")
+            label3.Visible = false;
+            try
             {
-                Application.Exit();
+                HizliServiceClient hizliServiceClient3 = new HizliServiceClient();
+                using (new OperationContextScope(hizliServiceClient3.InnerChannel))
+                {
+
+                    LoginUtil modal2 = new LoginUtil
+                    {
+                        password = password,
+                        secretKey = secret,
+                        username = username
+                    };
+
+                    LoginOut loginResponse = await hizliServiceClient3.UtilEncryptAsync(modal2);
+                    hashliuser = loginResponse.username.ToString();
+                    hashlipass = loginResponse.password.ToString();
+                }
+                HizliServiceClient hizliServiceClient4 = new HizliServiceClient();
+                using (new OperationContextScope(hizliServiceClient4.InnerChannel))
+                {
+                    LoginInput modal = new LoginInput
+                    {
+                        username = hashliuser,
+                        password = hashlipass,
+                        apiKey = apikey
+                    };
+
+                    LoginOutput[] loginResponse = await hizliServiceClient4.LoginAsync(modal);
+                    foreach (var item in loginResponse)
+                    {
+                        token = item.Token;
+                        tokenAlindi = true;
+                        label3.Visible = true;
+                    }
+                }
             }
-            if (Dns.GetHostByName(Dns.GetHostName()).AddressList[0].ToString() == "192.168.1.250")
+            catch
             {
-                baglanti.ConnectionString = "Server=localhost;Port=3306;Database='kontor';Uid='root';Pwd='1';SSL Mode = None;convert zero datetime=True";
-            }
-            else
-            {
-                baglanti.ConnectionString = "Server=192.168.1.250;Port=3306;Database='kontor';Uid='satis';Pwd='!1919+';SSL Mode = None;convert zero datetime=True";
+                tokenAlindi = false;
+                label3.Visible = false;
             }
         }
 
-        public string kullanici = "BİLİNMEYEN KULLANICI";
-        private void olus()
+
+        bool tokenAlindi = false;
+        private async void Form1_Load(object sender, EventArgs e)
         {
-            if (Dns.GetHostName() == "WIN-0LVN6SLHK43")
-            {
-                kullanici = "Şahin SEREN";
-                this.Text = "Kontör Yükleme - Yetkili " + kullanici;
-            }
-            else if (Dns.GetHostName() == "BaranPC")
-            {
-                kullanici = "Baran OVACIK";
-                this.Text = "Kontör Yükleme - Yetkili " + kullanici;
-            }
-            else if (Dns.GetHostName() == "DESKTOP-HN2OH3T")
-            {
-                kullanici = "Alper COŞKUN";
-                this.Text = "Kontör Yükleme - Yetkili " + kullanici;
-            }
-            else if (Dns.GetHostName() == "DESKTOP-O8BEUS0")
-            {
-                kullanici = "Efe AZSIZAN";
-                this.Text = "Kontör Yükleme - Yetkili " + kullanici;
-            }
-            else
-            {
-                kullanici = "BİLİNMEYEN KULLANICI";
-                this.Text = "Kontör Yükleme - Yetkili " + kullanici;
-            }
+            await tokenAl();
         }
 
         private void vnotxt_TextChanged(object sender, EventArgs e)
